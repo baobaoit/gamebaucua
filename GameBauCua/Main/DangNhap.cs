@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Main
+﻿namespace Main
 {
     class DangNhap : LayDuLieuNguoiChoi
     {
@@ -11,8 +6,8 @@ namespace Main
 
         public DangNhap(string TenTaiKhoan, string MatKhau)
         {
-            this.TenTaiKhoan = TenTaiKhoan;
-            this.MatKhau = MatKhau;
+            this.TenTaiKhoan = TenTaiKhoan.Trim();
+            this.MatKhau = MatKhau.Trim();
         }
 
         public bool ThucHienDangNhap()
