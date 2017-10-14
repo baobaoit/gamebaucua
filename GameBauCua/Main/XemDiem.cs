@@ -31,7 +31,7 @@ namespace Main
                     Diem = DocDuLieu.GetString(0);
                 }
 
-                MessageBox.Show(string.Format("Điểm của {0}: {1}", TenTaiKhoan, Diem));
+                MessageBox.Show(string.Format("Điểm của {0}: {1}", TenTaiKhoan, Diem), "Xem điểm");
             }
             catch (SqlException ex)
             {

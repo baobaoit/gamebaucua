@@ -1,4 +1,8 @@
-# Game bầu cua - Hướng dẫn
+﻿# Game bầu cua - Hướng dẫn
+==========================<br/>
+Mình có thêm thư mục Hinh, Nhac cách sử dụng:<br/>
+Sau khi Build -> Build Solution bạn sao chép (copy) thư mục Hinh và thư mục Nhac<br/>
+Bạn dán (paste) vào trong thư mục Debug của chương trình theo đường dẫn sau: GameBauCua\Main\bin\Debug
 ==========================<br/>
 Để phát triển phần mềm các bạn cần tải và cài đặt những phần mềm sau:<br/>
 + Visual Studio 2010 hoặc 2015 Community: https://www.visualstudio.com/en-us/news/releasenotes/vs2015-update3-vs<br/>

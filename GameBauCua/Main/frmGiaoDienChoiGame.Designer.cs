@@ -49,6 +49,7 @@
             this.picCaiDat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCaiDat.TabIndex = 4;
             this.picCaiDat.TabStop = false;
+            this.picCaiDat.Click += new System.EventHandler(this.picCaiDat_Click);
             // 
             // picXemDiem
             // 
@@ -72,6 +73,7 @@
             this.picChoiNgay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picChoiNgay.TabIndex = 2;
             this.picChoiNgay.TabStop = false;
+            this.picChoiNgay.Click += new System.EventHandler(this.picChoiNgay_Click);
             // 
             // pictureBox1
             // 
@@ -96,8 +98,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGiaoDienChoiGame";
-            this.Text = "frmGiaoDienChoiGame";
+            this.Text = "Bầu Cua Tôm Cá";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmGiaoDienChoiGame_FormClosed);
+            this.Load += new System.EventHandler(this.frmGiaoDienChoiGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCaiDat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picXemDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChoiNgay)).EndInit();

@@ -25,6 +25,11 @@ namespace Main
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            DangNhap();
+        }
+
+        private void DangNhap()
+        {
             if (new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap())
             {
                 if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -36,6 +41,15 @@ namespace Main
             }
             else
                 MessageBox.Show("Bạn cần đăng ký tài khoản trước khi chơi!\nNhấn vào nút đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                DangNhap();
+            }
+            return base.ProcessDialogKey(keyData);
         }
     }
 }
