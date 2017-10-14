@@ -5,13 +5,11 @@ namespace Main
 {
     class LayDuLieuNguoiChoi : KetNoiCSDL
     {
-        public NguoiChoi User { get; set; }
-
         protected bool LayDuLieu(string TenTaiKhoan, string MatKhau)
         {
             MoKetNoi();
 
-            // bo khoan trang du o dau va cuoi chuoi
+            //bo khoan trang du o dau va cuoi chuoi
             TenTaiKhoan = TenTaiKhoan.Trim();
             MatKhau = MatKhau.Trim();
 
@@ -23,14 +21,25 @@ namespace Main
                 cmd.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
 
                 SqlDataReader DocDuLieu = cmd.ExecuteReader();
-                string taikhoan, matkhau;
+                string taikhoan, matkhau, gioitinh = "", diachi = "", sodienthoai = "", diem = "0";
 
                 while (DocDuLieu.Read())
                 {
                     taikhoan = DocDuLieu.GetString(0);
                     matkhau = DocDuLieu.GetString(1);
 
-                    User = new NguoiChoi(taikhoan, matkhau);
+                    if (!DocDuLieu.IsDBNull(2))
+                        gioitinh = DocDuLieu.GetString(2);
+
+                    if (!DocDuLieu.IsDBNull(3))
+                        diachi = DocDuLieu.GetString(3);
+
+                    if (!DocDuLieu.IsDBNull(4))
+                        sodienthoai = DocDuLieu.GetString(4);
+
+                    diem = DocDuLieu.GetString(5);
+
+                    frmDangNhap.User = new NguoiChoi(taikhoan, matkhau, gioitinh, diachi, sodienthoai, diem);
                 }
             }
             catch (SqlException ex)
@@ -42,7 +51,7 @@ namespace Main
                 DongKetNoi();
             }
 
-            return User != null;
+            return frmDangNhap.User != null;
         }
     }
 }

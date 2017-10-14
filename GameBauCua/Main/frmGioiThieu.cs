@@ -1,28 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
 namespace Main
 {
-    public partial class frmIntro : Form
+    public partial class frmGioiThieu : Form
     {
         private string DuongDanHinh = string.Empty;
         bool BatFormMain = false;
-        public frmIntro(string DuongDanChuongTrinh)
+        public frmGioiThieu()
         {
             InitializeComponent();
-            DuongDanHinh = DuongDanChuongTrinh;
         }
 
         private void frmIntro_Load(object sender, EventArgs e)
         {
-            DuongDanHinh = DuongDanHinh + @"\Hinh\";
+            DuongDanHinh = Application.StartupPath + @"\Hinh\";
 
             TaoHaiPictureBox();
             timer1.Start();

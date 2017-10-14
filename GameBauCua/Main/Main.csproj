@@ -65,11 +65,11 @@
     <Compile Include="frmGiaoDienChoiGame.Designer.cs">
       <DependentUpon>frmGiaoDienChoiGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmIntro.cs">
+    <Compile Include="frmGioiThieu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIntro.Designer.cs">
-      <DependentUpon>frmIntro.cs</DependentUpon>
+    <Compile Include="frmGioiThieu.Designer.cs">
+      <DependentUpon>frmGioiThieu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -83,7 +83,6 @@
     <Compile Include="NhacNen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XemDiem.cs" />
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>

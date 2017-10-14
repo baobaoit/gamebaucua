@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WMPLib;
+﻿using WMPLib;
 
 namespace Main
 {
@@ -10,13 +6,22 @@ namespace Main
     {
         private WindowsMediaPlayer wmp = null;
 
-        public NhacNen(string DuongDanFileNhac)
+        public void GanDuongDanFileNhac(string DuongDanFileNhac)
         {
-            wmp = new WindowsMediaPlayer();
             wmp.URL = DuongDanFileNhac;
         }
 
-        public void ChoiNhac()
+        public bool ChuaCoNhacNen()
+        {
+            return string.IsNullOrEmpty(wmp.URL);
+        }
+
+        public NhacNen()
+        {
+            wmp = new WindowsMediaPlayer();
+        }
+
+        public void PhatNhac()
         {
             wmp.controls.play();
         }

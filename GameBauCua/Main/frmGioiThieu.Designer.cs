@@ -1,6 +1,6 @@
 ﻿namespace Main
 {
-    partial class frmIntro
+    partial class frmGioiThieu
     {
         /// <summary>
         /// Required designer variable.

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
@@ -12,34 +6,62 @@ namespace Main
 {
     public partial class frmGiaoDienChoiGame : Form
     {
-        private string TenTaiKhoan = string.Empty;
-        private NhacNen NHAC_NEN = null;
+        private NhacNen NHAC_NEN = new NhacNen();
         private string DuongDanFileNhac = string.Empty;
 
-        public frmGiaoDienChoiGame(string TenTaiKhoan)
+        public frmGiaoDienChoiGame()
         {
             InitializeComponent();
-
-            this.TenTaiKhoan = TenTaiKhoan;
         }
 
         private void picXemDiem_Click(object sender, EventArgs e)
         {
-            new XemDiem(TenTaiKhoan).ThucThiXemDiem();  
+            MessageBox.Show(string.Format("Điểm của {0}: {1}", frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem), "Xem điểm");  
         }
 
         private void frmGiaoDienChoiGame_Load(object sender, EventArgs e)
         {
-            DuongDanFileNhac = Application.StartupPath + @"\Nhac\";
-            if (Directory.Exists(DuongDanFileNhac))
+            ChuanBiNhacNen();
+        }
+
+        private void ChuanBiNhacNen()
+        {
+            DuongDanFileNhac = Application.StartupPath + @"\Nhac\"; //duong dan thu muc Nhac cua game
+            if (Directory.Exists(DuongDanFileNhac)) //kiem tra thu muc Nhac co ton tai khong
             {
-                NHAC_NEN = new NhacNen(DuongDanFileNhac + "nhac_nen.mp3");
-                NHAC_NEN.ChoiNhac();
-            }
-            else
-            {
-                if (MessageBox.Show("Không tìm thấy file nhạc\nVui lòng chép 1 file nhạc MP3 bỏ vào thư mục Nhac của chương trình.\nVà đăng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                /*
+                 * neu ton tai thu muc Nhac
+                 * kiem tra file nhac_nen.mp3 (file nhac nen mac dinh cua tro choi) co ton tai khong
+                 */
+                if (File.Exists(DuongDanFileNhac + "nhac_nen.mp3"))
                 {
+                    NHAC_NEN.GanDuongDanFileNhac(DuongDanFileNhac + "nhac_nen.mp3");
+                }
+                else //thu muc Nhac rong, khong tim thay file nhac_nen.mp3
+                {
+                    //lay tat ca file nhac co trong thu muc Nhac
+                    string[] DanhSachFileNhac = Directory.GetFiles(DuongDanFileNhac);
+
+                    //phat hien co file nhac
+                    if (DanhSachFileNhac.Length > 0)
+                    {
+                        //su dung file nhac dau tien trong danh sach lam nhac nen
+                        NHAC_NEN.GanDuongDanFileNhac(DanhSachFileNhac[0]);
+                    }
+                    else //thu muc Nhac rong, khong co file nhac mp3 nao
+                    {
+                        MessageBox.Show("Danh sách nhạc trống vui lòng sao chép file nhạc MP3 vào đường dẫn sau:\n" + DuongDanFileNhac + "\nSau đó đăng nhập lại!", "Không có file nhạc nền", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                if (!NHAC_NEN.ChuaCoNhacNen())
+                    NHAC_NEN.PhatNhac();
+            }
+            else //thu muc Nhac bi xoa
+            {
+                if (MessageBox.Show("Không tìm thấy file nhạc\nVui lòng chép 1 file nhạc MP3 bỏ vào thư mục Nhac của chương trình.\nTại đường dẫn sau: " + Application.StartupPath + "\nVà đăng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    //tao thu muc Nhac
                     Directory.CreateDirectory(DuongDanFileNhac);
                 }
             }
@@ -47,7 +69,7 @@ namespace Main
 
         private void frmGiaoDienChoiGame_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (NHAC_NEN != null)
+            if (!NHAC_NEN.ChuaCoNhacNen())
             {
                 NHAC_NEN.DungChoiNhac();
             }
@@ -56,23 +78,33 @@ namespace Main
         private void picChoiNgay_Click(object sender, EventArgs e)
         {
             Hide();
-            new frmIntro(Application.StartupPath).ShowDialog();
+            /*
+             * hien form gioi thieu roi moi vao tro choi
+             */
+            new frmGioiThieu().ShowDialog();
             Show();
         }
 
-        private void picCaiDat_Click(object sender, EventArgs e)
+        private void ChonFileNhacNen()
         {
             OpenFileDialog ChonNhacNen = new OpenFileDialog();
             using (ChonNhacNen)
             {
                 ChonNhacNen.Filter = "MP3 File|*.mp3";
                 ChonNhacNen.Title = "Chọn nhạc nền";
+                ChonNhacNen.InitialDirectory = DuongDanFileNhac;
                 if (ChonNhacNen.ShowDialog() == DialogResult.OK)
                 {
                     DuongDanFileNhac = ChonNhacNen.FileName;
-                    NHAC_NEN.DoiNhac(DuongDanFileNhac);                    
+                    NHAC_NEN.DoiNhac(DuongDanFileNhac);
+                    
                 }
             }
+        }
+
+        private void picCaiDat_Click(object sender, EventArgs e)
+        {
+            ChonFileNhacNen();
         }
     }
 }

@@ -5,6 +5,7 @@ namespace Main
 {
     public partial class frmDangNhap : Form
     {
+        public static NguoiChoi User = null; //su dung chung cho tat ca cac form
         public frmDangNhap()
         {
             InitializeComponent();
@@ -35,12 +36,12 @@ namespace Main
                 if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     Hide();
-                    new frmGiaoDienChoiGame(txtTenDangNhap.Text).ShowDialog();
+                    new frmGiaoDienChoiGame().ShowDialog();
                     Show();
                 }
             }
             else
-                MessageBox.Show("Bạn cần đăng ký tài khoản trước khi chơi!\nNhấn vào nút đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn cần đăng ký hoặc đăng nhập tài khoản trước khi chơi!\nNhấn vào nút đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         protected override bool ProcessDialogKey(Keys keyData)
