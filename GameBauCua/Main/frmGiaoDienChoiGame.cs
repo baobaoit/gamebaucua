@@ -77,18 +77,20 @@ namespace Main
 
         private void picChoiNgay_Click(object sender, EventArgs e)
         {
-            Hide();
-            /*
-             * hien form gioi thieu roi moi vao tro choi
-             */
-            new frmGioiThieu().ShowDialog();
-            Show();
+            using (frmGioiThieu frmGT = new frmGioiThieu())
+            {
+                Hide();
+                /*
+                 * hien form gioi thieu roi moi vao tro choi
+                 */
+                frmGT.ShowDialog();
+                Show();
+            }
         }
 
         private void ChonFileNhacNen()
         {
-            OpenFileDialog ChonNhacNen = new OpenFileDialog();
-            using (ChonNhacNen)
+            using (OpenFileDialog ChonNhacNen = new OpenFileDialog())
             {
                 ChonNhacNen.Filter = "MP3 File|*.mp3";
                 ChonNhacNen.Title = "Chọn nhạc nền";

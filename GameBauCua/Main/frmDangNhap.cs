@@ -19,9 +19,12 @@ namespace Main
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             // Mo form dang ky
-            Hide();
-            new frmDangKy().ShowDialog();
-            Show();
+            using (frmDangKy frmDK = new frmDangKy())
+            {
+                Hide();
+                frmDK.ShowDialog();
+                Show();
+            }
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -35,9 +38,12 @@ namespace Main
             {
                 if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    Hide();
-                    new frmGiaoDienChoiGame().ShowDialog();
-                    Show();
+                    using (frmGiaoDienChoiGame frmGDCG = new frmGiaoDienChoiGame())
+                    {
+                        Hide();
+                        frmGDCG.ShowDialog();
+                        Show();
+                    }
                 }
             }
             else

@@ -24,10 +24,12 @@ namespace Main
 
 
             if (new DangKy().ThucHienDangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text))
+            {
                 if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     Close();
                 else
                     MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

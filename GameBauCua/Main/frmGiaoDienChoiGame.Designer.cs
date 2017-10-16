@@ -41,6 +41,7 @@
             // 
             // picCaiDat
             // 
+            this.picCaiDat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("picCaiDat.Image")));
             this.picCaiDat.Location = new System.Drawing.Point(1339, 572);
             this.picCaiDat.Margin = new System.Windows.Forms.Padding(4);
@@ -53,6 +54,7 @@
             // 
             // picXemDiem
             // 
+            this.picXemDiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picXemDiem.Image = global::Main.Properties.Resources.w;
             this.picXemDiem.Location = new System.Drawing.Point(1339, 470);
             this.picXemDiem.Margin = new System.Windows.Forms.Padding(4);
@@ -65,6 +67,7 @@
             // 
             // picChoiNgay
             // 
+            this.picChoiNgay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picChoiNgay.Image = global::Main.Properties.Resources._653;
             this.picChoiNgay.Location = new System.Drawing.Point(1273, 320);
             this.picChoiNgay.Margin = new System.Windows.Forms.Padding(4);

@@ -66,6 +66,9 @@ namespace Main
             };
             Choi.XocBauCua(TienDatCuoc, ref picKetQua1, ref picKetQua2, ref picKetQua3);
 
+            lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
+            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
+
             if (Choi.TaiKhoan.Equals(0))
             {
                 if (Convert.ToInt32(frmDangNhap.User.Diem) < Choi.Diem)
@@ -76,9 +79,6 @@ namespace Main
                 MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-
-            lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
-            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
         }
     }
 }

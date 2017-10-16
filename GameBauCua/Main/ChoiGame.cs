@@ -38,8 +38,7 @@ namespace Main
                 SinhSoNgauNhien.Next(6)
             };
             int TongTienDatCuoc = TienDatCuoc.Sum();
-            int[] KetQuaXoc = new int[6];
-
+            
             if (TongTienDatCuoc > TaiKhoan)
             {
                 MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -47,6 +46,7 @@ namespace Main
             }
             else //TongTienDatCuoc <= TaiKhoan
             {
+                int[] KetQuaXoc = new int[6];
                 //xuat hinh ket qua
                 picKetQua1.Image = HinhBauCua[KetQua[0]];
                 picKetQua2.Image = HinhBauCua[KetQua[1]];
@@ -61,12 +61,12 @@ namespace Main
                 TaiKhoan -= TongTienDatCuoc;
 
                 //tinh diem
-                foreach (int item in KetQua)
+                foreach (int ketqua in KetQua)
                 {
-                    if (!TienDatCuoc[item].Equals(0))
+                    if (!TienDatCuoc[ketqua].Equals(0))
                     {
-                        Diem += (KetQuaXoc[item] == 1) ? 10 : (KetQuaXoc[item] == 2) ? 50 : 100;
-                        TaiKhoan += (TienDatCuoc[item] * KetQuaXoc[item]);
+                        Diem += (KetQuaXoc[ketqua] == 1) ? 10 : (KetQuaXoc[ketqua] == 2) ? 50 : 100;
+                        TaiKhoan += (TienDatCuoc[ketqua] * KetQuaXoc[ketqua]);
                     }
                 }
             }

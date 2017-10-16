@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
@@ -36,6 +37,8 @@
             this.btnDangKy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +71,7 @@
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(264, 34);
             this.txtTenDangNhap.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtTenDangNhap, "Nhập tên đăng nhập");
             // 
             // txtMatKhau
             // 
@@ -77,6 +81,7 @@
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(264, 34);
             this.txtMatKhau.TabIndex = 1;
+            this.toolTip2.SetToolTip(this.txtMatKhau, "Nhập mật khẩu");
             // 
             // btnDangNhap
             // 
@@ -85,7 +90,7 @@
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(163, 48);
             this.btnDangNhap.TabIndex = 2;
-            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.Text = "Đăng &nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -96,7 +101,7 @@
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(163, 48);
             this.btnDangKy.TabIndex = 3;
-            this.btnDangKy.Text = "Đăng ký ";
+            this.btnDangKy.Text = "Đăng &ký ";
             this.btnDangKy.UseVisualStyleBackColor = true;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
@@ -132,6 +137,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Tên đăng nhập";
+            // 
+            // toolTip2
+            // 
+            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip2.ToolTipTitle = "Mật khẩu";
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,5 +176,7 @@
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }

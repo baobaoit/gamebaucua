@@ -107,7 +107,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(957, 41);
             this.label2.TabIndex = 3;
-            this.label2.Text = "________________________________________________________________";
+            this.label2.Text = "____________________________________________________________________\r\n\r\n";
             // 
             // label1
             // 
@@ -329,6 +329,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picXoc.BackColor = System.Drawing.Color.Transparent;
+            this.picXoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picXoc.Image = global::Main.Properties.Resources._6;
             this.picXoc.Location = new System.Drawing.Point(0, 296);
             this.picXoc.Margin = new System.Windows.Forms.Padding(4);

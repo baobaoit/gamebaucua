@@ -77,6 +77,7 @@
             // 
             // picDangKy
             // 
+            this.picDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picDangKy.Image = global::Main.Properties.Resources._989;
             this.picDangKy.Location = new System.Drawing.Point(251, 391);
             this.picDangKy.Margin = new System.Windows.Forms.Padding(4);

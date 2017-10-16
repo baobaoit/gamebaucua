@@ -7,7 +7,6 @@ namespace Main
 {
     public partial class frmGioiThieu : Form
     {
-        private string DuongDanHinh = string.Empty;
         bool BatFormMain = false;
         public frmGioiThieu()
         {
@@ -16,17 +15,15 @@ namespace Main
 
         private void frmIntro_Load(object sender, EventArgs e)
         {
-            DuongDanHinh = Application.StartupPath + @"\Hinh\";
-
             TaoHaiPictureBox();
             timer1.Start();
         }
 
-        private void TaoPictureBox(string TenPictureBox, string DuongDanHinhAnh, int KichThuocPictureBox, int x, int y)
+        private void TaoPictureBox(string TenPictureBox, Bitmap HinhAnh, int KichThuocPictureBox, int x, int y)
         {
             PictureBox pic = new PictureBox();
             pic.Name = TenPictureBox;
-            pic.Image = Image.FromFile(DuongDanHinhAnh);
+            pic.Image = HinhAnh;
             pic.Size = new Size(KichThuocPictureBox, KichThuocPictureBox);
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
             pic.Location = new Point(x, y);
@@ -36,9 +33,9 @@ namespace Main
         private void TaoHaiPictureBox()
         {
             //pic1
-            TaoPictureBox("pic1", DuongDanHinh + "1.png", 69, 5, ClientRectangle.Height / 3);
+            TaoPictureBox("pic1", Properties.Resources._1, 69, 5, ClientRectangle.Height / 3);
             //pic2
-            TaoPictureBox("pic2", DuongDanHinh + "2.png", 69, ClientRectangle.Width - 74, ClientRectangle.Height / 3);
+            TaoPictureBox("pic2", Properties.Resources._2, 69, ClientRectangle.Width - 74, ClientRectangle.Height / 3);
         }
 
         private void FrmIntro_Paint(object sender, PaintEventArgs e)
@@ -84,9 +81,12 @@ namespace Main
             if (BatFormMain)
             {
                 timer1.Stop(); //dung timer
-                Hide();
-                new frmMain().ShowDialog();
-                Close();
+                using (frmMain Main = new frmMain())
+                {
+                    Hide();
+                    Main.ShowDialog();
+                    Close();
+                }
             }
         }
     }
