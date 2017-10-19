@@ -21,6 +21,8 @@ namespace Main
 
         private void frmGiaoDienChoiGame_Load(object sender, EventArgs e)
         {
+            Text = "";
+            ControlBox = false;
             ChuanBiNhacNen();
         }
 
@@ -107,6 +109,11 @@ namespace Main
         private void picCaiDat_Click(object sender, EventArgs e)
         {
             ChonFileNhacNen();
+        }
+
+        private void picThoat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

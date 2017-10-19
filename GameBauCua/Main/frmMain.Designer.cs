@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.picXoc = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTaiKhoan = new System.Windows.Forms.Label();
+            this.ttipHinhDaiDien = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -124,6 +126,7 @@
             this.txtDatGa.Location = new System.Drawing.Point(788, 250);
             this.txtDatGa.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatGa.Name = "txtDatGa";
+            this.txtDatGa.ShortcutsEnabled = false;
             this.txtDatGa.Size = new System.Drawing.Size(288, 34);
             this.txtDatGa.TabIndex = 2;
             this.txtDatGa.Text = "0";
@@ -134,6 +137,7 @@
             this.txtDatBau.Location = new System.Drawing.Point(400, 250);
             this.txtDatBau.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatBau.Name = "txtDatBau";
+            this.txtDatBau.ShortcutsEnabled = false;
             this.txtDatBau.Size = new System.Drawing.Size(288, 34);
             this.txtDatBau.TabIndex = 1;
             this.txtDatBau.Text = "0";
@@ -144,6 +148,7 @@
             this.txtDatTom.Location = new System.Drawing.Point(788, 510);
             this.txtDatTom.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatTom.Name = "txtDatTom";
+            this.txtDatTom.ShortcutsEnabled = false;
             this.txtDatTom.Size = new System.Drawing.Size(288, 34);
             this.txtDatTom.TabIndex = 5;
             this.txtDatTom.Text = "0";
@@ -154,6 +159,7 @@
             this.txtDatCua.Location = new System.Drawing.Point(400, 510);
             this.txtDatCua.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatCua.Name = "txtDatCua";
+            this.txtDatCua.ShortcutsEnabled = false;
             this.txtDatCua.Size = new System.Drawing.Size(288, 34);
             this.txtDatCua.TabIndex = 4;
             this.txtDatCua.Text = "0";
@@ -164,6 +170,7 @@
             this.txtDatCa.Location = new System.Drawing.Point(11, 510);
             this.txtDatCa.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatCa.Name = "txtDatCa";
+            this.txtDatCa.ShortcutsEnabled = false;
             this.txtDatCa.Size = new System.Drawing.Size(279, 34);
             this.txtDatCa.TabIndex = 3;
             this.txtDatCa.Text = "0";
@@ -174,6 +181,7 @@
             this.txtDatNai.Location = new System.Drawing.Point(9, 251);
             this.txtDatNai.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatNai.Name = "txtDatNai";
+            this.txtDatNai.ShortcutsEnabled = false;
             this.txtDatNai.Size = new System.Drawing.Size(279, 34);
             this.txtDatNai.TabIndex = 0;
             this.txtDatNai.Text = "0";
@@ -314,6 +322,7 @@
             // 
             this.picHinhDaiDien.BackColor = System.Drawing.Color.Transparent;
             this.picHinhDaiDien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHinhDaiDien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picHinhDaiDien.Image = global::Main.Properties.Resources.nam;
             this.picHinhDaiDien.Location = new System.Drawing.Point(161, 55);
             this.picHinhDaiDien.Margin = new System.Windows.Forms.Padding(4);
@@ -322,6 +331,8 @@
             this.picHinhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHinhDaiDien.TabIndex = 6;
             this.picHinhDaiDien.TabStop = false;
+            this.ttipHinhDaiDien.SetToolTip(this.picHinhDaiDien, "Nhấn vào hình đại diện để đăng xuất");
+            this.picHinhDaiDien.Click += new System.EventHandler(this.picHinhDaiDien_Click);
             // 
             // picXoc
             // 
@@ -364,6 +375,11 @@
             this.lblTaiKhoan.Size = new System.Drawing.Size(296, 39);
             this.lblTaiKhoan.TabIndex = 7;
             this.lblTaiKhoan.Text = "Tài khoản: 10000";
+            // 
+            // ttipHinhDaiDien
+            // 
+            this.ttipHinhDaiDien.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttipHinhDaiDien.ToolTipTitle = "Đăng xuất";
             // 
             // frmMain
             // 
@@ -427,6 +443,7 @@
         private System.Windows.Forms.PictureBox picXoc;
         private System.Windows.Forms.PictureBox picHinhDaiDien;
         private System.Windows.Forms.Label lblTaiKhoan;
+        private System.Windows.Forms.ToolTip ttipHinhDaiDien;
     }
 }
 

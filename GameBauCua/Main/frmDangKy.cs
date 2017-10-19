@@ -31,5 +31,16 @@ namespace Main
                     MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void frmDangKy_Load(object sender, EventArgs e)
+        {
+            Text = "";
+            ControlBox = false;
+        }
+
+        private void picDangNhap_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

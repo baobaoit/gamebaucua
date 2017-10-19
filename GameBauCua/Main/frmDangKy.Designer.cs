@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.picDangKy = new System.Windows.Forms.PictureBox();
             this.rdNu = new System.Windows.Forms.RadioButton();
             this.rdNam = new System.Windows.Forms.RadioButton();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
@@ -44,8 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.picDangNhap = new System.Windows.Forms.PictureBox();
+            this.picDangKy = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ttipDangNhap = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDangNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +57,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Brown;
+            this.groupBox1.Controls.Add(this.picDangNhap);
             this.groupBox1.Controls.Add(this.picDangKy);
             this.groupBox1.Controls.Add(this.rdNu);
             this.groupBox1.Controls.Add(this.rdNam);
@@ -74,19 +79,6 @@
             this.groupBox1.Size = new System.Drawing.Size(783, 484);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // picDangKy
-            // 
-            this.picDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picDangKy.Image = global::Main.Properties.Resources._989;
-            this.picDangKy.Location = new System.Drawing.Point(251, 391);
-            this.picDangKy.Margin = new System.Windows.Forms.Padding(4);
-            this.picDangKy.Name = "picDangKy";
-            this.picDangKy.Size = new System.Drawing.Size(271, 85);
-            this.picDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDangKy.TabIndex = 5;
-            this.picDangKy.TabStop = false;
-            this.picDangKy.Click += new System.EventHandler(this.picDangKy_Click);
             // 
             // rdNu
             // 
@@ -243,6 +235,32 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "Bầu Cua Tôm Cá";
             // 
+            // picDangNhap
+            // 
+            this.picDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picDangNhap.Image = global::Main.Properties.Resources._4717;
+            this.picDangNhap.Location = new System.Drawing.Point(213, 389);
+            this.picDangNhap.Name = "picDangNhap";
+            this.picDangNhap.Size = new System.Drawing.Size(225, 85);
+            this.picDangNhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDangNhap.TabIndex = 6;
+            this.picDangNhap.TabStop = false;
+            this.ttipDangNhap.SetToolTip(this.picDangNhap, "Nhấn để trở về màn hình đăng nhập");
+            this.picDangNhap.Click += new System.EventHandler(this.picDangNhap_Click);
+            // 
+            // picDangKy
+            // 
+            this.picDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picDangKy.Image = global::Main.Properties.Resources._989;
+            this.picDangKy.Location = new System.Drawing.Point(445, 390);
+            this.picDangKy.Margin = new System.Windows.Forms.Padding(4);
+            this.picDangKy.Name = "picDangKy";
+            this.picDangKy.Size = new System.Drawing.Size(225, 85);
+            this.picDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDangKy.TabIndex = 5;
+            this.picDangKy.TabStop = false;
+            this.picDangKy.Click += new System.EventHandler(this.picDangKy_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -254,6 +272,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // ttipDangNhap
+            // 
+            this.ttipDangNhap.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttipDangNhap.ToolTipTitle = "Đăng nhập";
             // 
             // frmDangKy
             // 
@@ -268,8 +291,10 @@
             this.Name = "frmDangKy";
             this.Text = "Đăng ký tài khoản";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmDangKy_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDangNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -296,5 +321,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox picDangKy;
+        private System.Windows.Forms.PictureBox picDangNhap;
+        private System.Windows.Forms.ToolTip ttipDangNhap;
     }
 }

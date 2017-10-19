@@ -41,7 +41,7 @@ namespace Main
                     using (frmGiaoDienChoiGame frmGDCG = new frmGiaoDienChoiGame())
                     {
                         Hide();
-                        frmGDCG.ShowDialog();
+                        new frmGiaoDienChoiGame().ShowDialog();
                         Show();
                     }
                 }
@@ -57,6 +57,19 @@ namespace Main
                 DangNhap();
             }
             return base.ProcessDialogKey(keyData);
+        }
+
+        private void picThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát chương trình chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

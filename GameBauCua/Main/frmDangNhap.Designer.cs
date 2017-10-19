@@ -36,10 +36,11 @@
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnDangKy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picThoat = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttipThoatChuongTrinh = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picThoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,8 +71,7 @@
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(264, 34);
-            this.txtTenDangNhap.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.txtTenDangNhap, "Nhập tên đăng nhập");
+            this.txtTenDangNhap.TabIndex = 1;
             // 
             // txtMatKhau
             // 
@@ -80,8 +80,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(264, 34);
-            this.txtMatKhau.TabIndex = 1;
-            this.toolTip2.SetToolTip(this.txtMatKhau, "Nhập mật khẩu");
+            this.txtMatKhau.TabIndex = 2;
             // 
             // btnDangNhap
             // 
@@ -89,7 +88,7 @@
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(163, 48);
-            this.btnDangNhap.TabIndex = 2;
+            this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng &nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -100,8 +99,8 @@
             this.btnDangKy.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(163, 48);
-            this.btnDangKy.TabIndex = 3;
-            this.btnDangKy.Text = "Đăng &ký ";
+            this.btnDangKy.TabIndex = 4;
+            this.btnDangKy.Text = "Đăng &ký";
             this.btnDangKy.UseVisualStyleBackColor = true;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
@@ -117,13 +116,27 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(261, 461);
+            this.groupBox1.Location = new System.Drawing.Point(261, 555);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(553, 186);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // picThoat
+            // 
+            this.picThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picThoat.BackgroundImage = global::Main.Properties.Resources._655757;
+            this.picThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picThoat.Location = new System.Drawing.Point(1016, 700);
+            this.picThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.picThoat.Name = "picThoat";
+            this.picThoat.Size = new System.Drawing.Size(133, 127);
+            this.picThoat.TabIndex = 5;
+            this.picThoat.TabStop = false;
+            this.ttipThoatChuongTrinh.SetToolTip(this.picThoat, "Nhấn vào đây để thoát chương trình");
+            this.picThoat.Click += new System.EventHandler(this.picThoat_Click);
             // 
             // pictureBox1
             // 
@@ -132,35 +145,34 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1149, 655);
+            this.pictureBox1.Size = new System.Drawing.Size(1149, 842);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // toolTip1
+            // ttipThoatChuongTrinh
             // 
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Tên đăng nhập";
-            // 
-            // toolTip2
-            // 
-            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.ToolTipTitle = "Mật khẩu";
+            this.ttipThoatChuongTrinh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttipThoatChuongTrinh.ToolTipTitle = "Thoát";
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 655);
+            this.ClientSize = new System.Drawing.Size(1149, 842);
+            this.Controls.Add(this.picThoat);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDangNhap";
-            this.Text = "Đăng nhập";
+            this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picThoat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -176,7 +188,7 @@
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.PictureBox picThoat;
+        private System.Windows.Forms.ToolTip ttipThoatChuongTrinh;
     }
 }

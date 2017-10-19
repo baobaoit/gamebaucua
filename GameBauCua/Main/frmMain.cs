@@ -20,6 +20,8 @@ namespace Main
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            Text = "";
+            ControlBox = false;
             Choi = new ChoiGame();
             //dat hinh dai dien
             if (frmDangNhap.User.GioiTinh == "Nam")
@@ -79,6 +81,11 @@ namespace Main
                 MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
+        }
+
+        private void picHinhDaiDien_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
