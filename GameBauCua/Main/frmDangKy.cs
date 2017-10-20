@@ -21,15 +21,14 @@ namespace Main
             string GioiTinh = "Nam";
             if (rdNu.Checked)
                 GioiTinh = "Nữ";
-
-
-            if (new DangKy().ThucHienDangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text))
+            
+            if (new DangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text).ThucHienDangKy())
             {
                 if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     Close();
-                else
-                    MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+                MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!\nHoặc tên tài khoản đã tồn tại vui lòng sử dụng tên tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void frmDangKy_Load(object sender, EventArgs e)

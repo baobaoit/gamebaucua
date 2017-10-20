@@ -11,11 +11,6 @@ namespace Main
             InitializeComponent();
         }
 
-        private void frmDangNhap_Load(object sender, EventArgs e)
-        {
-            txtTenDangNhap.Focus();
-        }
-
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             // Mo form dang ky

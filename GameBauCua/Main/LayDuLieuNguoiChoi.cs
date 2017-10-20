@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Main
 {
@@ -28,7 +30,7 @@ namespace Main
                     taikhoan = DocDuLieu.GetString(0);
                     matkhau = DocDuLieu.GetString(1);
 
-                    if (!DocDuLieu.IsDBNull(2))
+                    if (!DocDuLieu.IsDBNull(2)) //IsDBNull la kiem tra du lieu trong CSDL co phai la NULL ko
                         gioitinh = DocDuLieu.GetString(2);
 
                     if (!DocDuLieu.IsDBNull(3))
@@ -44,7 +46,11 @@ namespace Main
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {

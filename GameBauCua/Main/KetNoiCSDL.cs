@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Main
 {
@@ -23,17 +24,13 @@ namespace Main
                     KetNoi.Open();
                 }
             }
-            catch (InvalidOperationException ex)
-            {
-                throw ex;
-            }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (ConfigurationErrorsException ex)
+            catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

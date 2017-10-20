@@ -13,12 +13,12 @@ namespace Main
         public int TaiKhoan { get; set; }
         private Bitmap[] HinhBauCua =
         {
-            Properties.Resources._0,
-            Properties.Resources._1,
-            Properties.Resources._2,
-            Properties.Resources._3,
-            Properties.Resources._4,
-            Properties.Resources._5
+            Properties.Resources._0, //Nai
+            Properties.Resources._1, //Bau
+            Properties.Resources._2, //Ga
+            Properties.Resources._3, //Ca
+            Properties.Resources._4, //Cua
+            Properties.Resources._5 //Tom
         };
         private Random SinhSoNgauNhien;
 
