@@ -8,6 +8,7 @@ namespace Main
 {
     class KetNoiCSDL
     {
+        protected string TenTaiKhoan = string.Empty, MatKhau = string.Empty, GioiTinh = string.Empty, DiaChi = string.Empty, SoDienThoai = string.Empty, Diem = string.Empty;
         protected SqlConnection KetNoi = null;
         public KetNoiCSDL()
         {

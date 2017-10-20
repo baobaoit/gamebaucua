@@ -7,8 +7,6 @@ namespace Main
 {
     class DangKy : KetNoiCSDL
     {
-        private string TenTaiKhoan = string.Empty, MatKhau = string.Empty, GioiTinh = string.Empty, DiaChi = string.Empty, SoDienThoai = string.Empty;
-
         public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh, string DiaChi, string SoDienThoai)
         {
             this.TenTaiKhoan = TenTaiKhoan.Trim();

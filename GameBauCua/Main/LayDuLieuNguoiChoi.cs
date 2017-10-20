@@ -7,14 +7,10 @@ namespace Main
 {
     class LayDuLieuNguoiChoi : KetNoiCSDL
     {
-        protected bool LayDuLieu(string TenTaiKhoan, string MatKhau)
+        protected bool LayDuLieu()
         {
             MoKetNoi();
-
-            //bo khoan trang du o dau va cuoi chuoi
-            TenTaiKhoan = TenTaiKhoan.Trim();
-            MatKhau = MatKhau.Trim();
-
+            
             try
             {
                 SqlCommand cmd = new SqlCommand("DangNhap", KetNoi);

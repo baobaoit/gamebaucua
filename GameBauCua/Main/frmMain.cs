@@ -80,7 +80,7 @@ namespace Main
                 if (Convert.ToInt32(frmDangNhap.User.Diem) < Choi.Diem)
                 {
                     frmDangNhap.User.Diem = Choi.Diem.ToString();
-                    new CapNhatDiem().CapNhat();
+                    new CapNhatDiem(frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem).CapNhat();
                 }
                 MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();

@@ -7,6 +7,11 @@ namespace Main
 {
     class CapNhatDiem : KetNoiCSDL
     {
+        public CapNhatDiem(string TenTaiKhoan, string Diem)
+        {
+            this.TenTaiKhoan = TenTaiKhoan;
+            this.Diem = Diem;
+        }
         public void CapNhat()
         {
             MoKetNoi();
@@ -15,8 +20,8 @@ namespace Main
             {
                 SqlCommand cmd = new SqlCommand("CapNhatDiem", KetNoi);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@TenTaiKhoan", frmDangNhap.User.TenTaiKhoan));
-                cmd.Parameters.Add(new SqlParameter("@DiemCapNhat", frmDangNhap.User.Diem));
+                cmd.Parameters.Add(new SqlParameter("@TenTaiKhoan", TenTaiKhoan));
+                cmd.Parameters.Add(new SqlParameter("@DiemCapNhat", Diem));
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

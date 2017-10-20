@@ -2,8 +2,6 @@
 {
     class DangNhap : LayDuLieuNguoiChoi
     {
-        private string TenTaiKhoan = string.Empty, MatKhau = string.Empty;
-
         public DangNhap(string TenTaiKhoan, string MatKhau)
         {
             this.TenTaiKhoan = TenTaiKhoan.Trim();
@@ -15,7 +13,7 @@
             if (TenTaiKhoan == string.Empty && MatKhau == string.Empty)
                 return false;
 
-            if (LayDuLieu(TenTaiKhoan, MatKhau))
+            if (LayDuLieu())
                 return true;
             return false;
         }
