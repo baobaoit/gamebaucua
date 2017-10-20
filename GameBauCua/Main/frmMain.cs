@@ -20,8 +20,12 @@ namespace Main
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            #region Ẩn thanh TitleBar và Sửa lỗi hiển thị thanh màu trắng ở dưới chương trình
+            Hide();
             Text = "";
             ControlBox = false;
+            Show(); 
+            #endregion
             Choi = new ChoiGame();
             //dat hinh dai dien
             if (frmDangNhap.User.GioiTinh == "Nam")

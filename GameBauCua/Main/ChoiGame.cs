@@ -39,9 +39,9 @@ namespace Main
             };
             int TongTienDatCuoc = TienDatCuoc.Sum();
             
-            if (TongTienDatCuoc > TaiKhoan)
+            if (TongTienDatCuoc > TaiKhoan || TongTienDatCuoc == 0)
             {
-                MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else //TongTienDatCuoc <= TaiKhoan

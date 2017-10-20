@@ -34,8 +34,12 @@ namespace Main
 
         private void frmDangKy_Load(object sender, EventArgs e)
         {
+            #region Ẩn thanh TitleBar và Sửa lỗi hiển thị thanh màu trắng ở dưới chương trình
+            Hide();
             Text = "";
             ControlBox = false;
+            Show();
+            #endregion
         }
 
         private void picDangNhap_Click(object sender, EventArgs e)

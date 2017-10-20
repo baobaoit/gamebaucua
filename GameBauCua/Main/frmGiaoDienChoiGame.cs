@@ -21,8 +21,12 @@ namespace Main
 
         private void frmGiaoDienChoiGame_Load(object sender, EventArgs e)
         {
+            #region Ẩn thanh TitleBar và Sửa lỗi hiển thị thanh màu trắng ở dưới chương trình
+            Hide();
             Text = "";
             ControlBox = false;
+            Show();
+            #endregion
             ChuanBiNhacNen();
         }
 
