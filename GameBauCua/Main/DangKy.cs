@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Main
 {
@@ -33,7 +34,7 @@ namespace Main
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("Tài khoản bị trùng!\nVui lòng chọn tên tài khoản khác!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
