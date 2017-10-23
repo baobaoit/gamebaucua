@@ -11,6 +11,7 @@ namespace Main
     {
         public int Diem { get; set; }
         public int TaiKhoan { get; set; }
+        private int[] KetQua = new int[3];
         private Bitmap[] HinhBauCua =
         {
             Properties.Resources._0, //Nai
@@ -20,6 +21,8 @@ namespace Main
             Properties.Resources._4, //Cua
             Properties.Resources._5 //Tom
         };
+        public Bitmap HinhKetQua(int i) => HinhBauCua[i];
+        public int KetQuaXoc(int i) => KetQua[i];
         private Random SinhSoNgauNhien;
 
         public ChoiGame()
@@ -29,16 +32,14 @@ namespace Main
             SinhSoNgauNhien = new Random();
         }
 
-        public void XocBauCua(int[] TienDatCuoc, ref PictureBox picKetQua1, ref PictureBox picKetQua2, ref PictureBox picKetQua3)
+        public void XocBauCua(int[] TienDatCuoc)
         {
-            int[] KetQua =
-            {
-                SinhSoNgauNhien.Next(6),
-                SinhSoNgauNhien.Next(6),
-                SinhSoNgauNhien.Next(6)
-            };
+            KetQua[0] = SinhSoNgauNhien.Next(6);
+            KetQua[1] = SinhSoNgauNhien.Next(6);
+            KetQua[2] = SinhSoNgauNhien.Next(6);
+
             int TongTienDatCuoc = TienDatCuoc.Sum();
-            
+
             if (TongTienDatCuoc > TaiKhoan || TongTienDatCuoc == 0)
             {
                 MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -47,10 +48,6 @@ namespace Main
             else //TongTienDatCuoc <= TaiKhoan
             {
                 int[] KetQuaXoc = new int[6];
-                //xuat hinh ket qua
-                picKetQua1.Image = HinhBauCua[KetQua[0]];
-                picKetQua2.Image = HinhBauCua[KetQua[1]];
-                picKetQua3.Image = HinhBauCua[KetQua[2]];
 
                 //dem so luong xuat hien cua tung ket qua
                 KetQuaXoc[KetQua[0]]++;

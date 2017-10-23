@@ -41,9 +41,6 @@ namespace Main
             #endregion
         }
 
-        private void picDangNhap_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void picDangNhap_Click(object sender, EventArgs e) => Close();
     }
 }

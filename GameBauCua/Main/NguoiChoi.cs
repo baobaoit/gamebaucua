@@ -19,5 +19,7 @@
             this.SoDienThoai = SoDienThoai;
             this.Diem = Diem;
         }
+
+        public static bool TonTai(NguoiChoi nguoiChoi) => nguoiChoi != null;
     }
 }

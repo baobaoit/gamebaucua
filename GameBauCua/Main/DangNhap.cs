@@ -8,14 +8,15 @@
             this.MatKhau = MatKhau.Trim();
         }
 
-        public bool ThucHienDangNhap()
+        public NguoiChoi ThucHienDangNhap()
         {
             if (TenTaiKhoan == string.Empty && MatKhau == string.Empty)
-                return false;
+                return null;
 
-            if (LayDuLieu())
-                return true;
-            return false;
+            NguoiChoi User = LayDuLieu();
+            if (NguoiChoi.TonTai(User))
+                return User;
+            return null;
         }
     }
 }

@@ -70,7 +70,11 @@ namespace Main
                 Convert.ToInt32(txtDatCua.Text),
                 Convert.ToInt32(txtDatTom.Text),
             };
-            Choi.XocBauCua(TienDatCuoc, ref picKetQua1, ref picKetQua2, ref picKetQua3);
+            Choi.XocBauCua(TienDatCuoc);
+
+            picKetQua1.Image = Choi.HinhKetQua(Choi.KetQuaXoc(0));
+            picKetQua2.Image = Choi.HinhKetQua(Choi.KetQuaXoc(1));
+            picKetQua3.Image = Choi.HinhKetQua(Choi.KetQuaXoc(2));
 
             lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
             lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
@@ -87,9 +91,6 @@ namespace Main
             }
         }
 
-        private void picHinhDaiDien_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void picHinhDaiDien_Click(object sender, EventArgs e) => Close();
     }
 }

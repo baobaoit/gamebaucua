@@ -7,8 +7,9 @@ namespace Main
 {
     class LayDuLieuNguoiChoi : KetNoiCSDL
     {
-        protected bool LayDuLieu()
+        protected NguoiChoi LayDuLieu()
         {
+            NguoiChoi User = null;
             MoKetNoi();
             
             try
@@ -37,7 +38,7 @@ namespace Main
 
                     diem = DocDuLieu.GetString(5);
 
-                    frmDangNhap.User = new NguoiChoi(taikhoan, matkhau, gioitinh, diachi, sodienthoai, diem);
+                    User = new NguoiChoi(taikhoan, matkhau, gioitinh, diachi, sodienthoai, diem);
                 }
             }
             catch (SqlException ex)
@@ -53,7 +54,7 @@ namespace Main
                 DongKetNoi();
             }
 
-            return frmDangNhap.User != null;
+            return User;
         }
     }
 }

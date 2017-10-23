@@ -22,14 +22,12 @@ namespace Main
             }
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
-        {
-            DangNhap();
-        }
+        private void btnDangNhap_Click(object sender, EventArgs e) => DangNhap();
 
         private void DangNhap()
         {
-            if (new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap())
+            User = new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap();
+            if (NguoiChoi.TonTai(User))
             {
                 if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
@@ -54,10 +52,7 @@ namespace Main
             return base.ProcessDialogKey(keyData);
         }
 
-        private void picThoat_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void picThoat_Click(object sender, EventArgs e) => Close();
 
         private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
