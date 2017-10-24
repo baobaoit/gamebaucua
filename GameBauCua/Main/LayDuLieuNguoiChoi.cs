@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Main
 {
-    class LayDuLieuNguoiChoi : KetNoiCSDL
+    public class LayDuLieuNguoiChoi : KetNoiCSDL
     {
         protected NguoiChoi LayDuLieu()
         {

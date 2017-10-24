@@ -5,7 +5,7 @@ using System;
 
 namespace Main
 {
-    class DangKy : KetNoiCSDL
+    public class DangKy : KetNoiCSDL
     {
         public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh, string DiaChi, string SoDienThoai)
         {

@@ -2,7 +2,7 @@
 
 namespace Main
 {
-    class NhacNen
+    public class NhacNen
     {
         private WindowsMediaPlayer wmp = null;
 

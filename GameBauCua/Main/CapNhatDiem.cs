@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Main
 {
-    class CapNhatDiem : KetNoiCSDL
+    public class CapNhatDiem : KetNoiCSDL
     {
         public CapNhatDiem(string TenTaiKhoan, string Diem)
         {

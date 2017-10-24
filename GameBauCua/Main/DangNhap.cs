@@ -1,6 +1,6 @@
 ﻿namespace Main
 {
-    class DangNhap : LayDuLieuNguoiChoi
+    public class DangNhap : LayDuLieuNguoiChoi
     {
         public DangNhap(string TenTaiKhoan, string MatKhau)
         {

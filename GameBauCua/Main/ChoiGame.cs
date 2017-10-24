@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Main
 {
-    class ChoiGame
+    public class ChoiGame
     {
         public int Diem { get; set; }
         public int TaiKhoan { get; set; }
