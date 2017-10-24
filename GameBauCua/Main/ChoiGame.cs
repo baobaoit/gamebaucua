@@ -21,8 +21,7 @@ namespace Main
             Properties.Resources._4, //Cua
             Properties.Resources._5 //Tom
         };
-        public Bitmap HinhKetQua(int i) => HinhBauCua[i];
-        public int KetQuaXoc(int i) => KetQua[i];
+        public Bitmap HinhKetQua(int i) => HinhBauCua[KetQua[i - 1]];
         private Random SinhSoNgauNhien;
 
         public ChoiGame()
@@ -32,7 +31,7 @@ namespace Main
             SinhSoNgauNhien = new Random();
         }
 
-        public void XocBauCua(int[] TienDatCuoc)
+        public int XocBauCua(int[] TienDatCuoc)
         {
             KetQua[0] = SinhSoNgauNhien.Next(6);
             KetQua[1] = SinhSoNgauNhien.Next(6);
@@ -42,8 +41,7 @@ namespace Main
 
             if (TongTienDatCuoc > TaiKhoan || TongTienDatCuoc == 0)
             {
-                MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return 0;
             }
             else //TongTienDatCuoc <= TaiKhoan
             {
@@ -63,10 +61,11 @@ namespace Main
                     if (!TienDatCuoc[ketqua].Equals(0))
                     {
                         Diem += (KetQuaXoc[ketqua] == 1) ? 10 : (KetQuaXoc[ketqua] == 2) ? 50 : 100;
-                        TaiKhoan += (TienDatCuoc[ketqua] * KetQuaXoc[ketqua]);
+                        TaiKhoan += TienDatCuoc[ketqua];
                     }
                 }
             }
+            return 1;
         }
     }
 }

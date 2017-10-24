@@ -8,8 +8,8 @@ namespace UnitTest_LopDangKy
     public class UnitTest1
     {
         DangKy dangKy = null;
-        XoaTaiKhoan xoaTaiKhoan = new XoaTaiKhoan();
-        string TenTaiKhoan = "us3";
+        XoaTaiKhoan xoaTaiKhoan = new XoaTaiKhoan(); // sau khi test dang ky xong phai xoa tai khoan dung de test
+        string TenTaiKhoan = "us3"; // ten tai khoan dung de test
         [TestMethod]
         public void TestDangKyHopLe1()
         {

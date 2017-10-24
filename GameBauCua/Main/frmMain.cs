@@ -70,11 +70,15 @@ namespace Main
                 Convert.ToInt32(txtDatCua.Text),
                 Convert.ToInt32(txtDatTom.Text),
             };
-            Choi.XocBauCua(TienDatCuoc);
+            if (Choi.XocBauCua(TienDatCuoc).Equals(0))
+            {
+                MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            picKetQua1.Image = Choi.HinhKetQua(Choi.KetQuaXoc(0));
-            picKetQua2.Image = Choi.HinhKetQua(Choi.KetQuaXoc(1));
-            picKetQua3.Image = Choi.HinhKetQua(Choi.KetQuaXoc(2));
+            picKetQua1.Image = Choi.HinhKetQua(1);
+            picKetQua2.Image = Choi.HinhKetQua(2);
+            picKetQua3.Image = Choi.HinhKetQua(3);
 
             lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
             lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
