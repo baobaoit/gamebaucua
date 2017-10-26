@@ -9,6 +9,7 @@ namespace Main
 {
     public class ChoiGame
     {
+        #region Thuộc tính
         public int Diem { get; set; }
         public int TaiKhoan { get; set; }
         private int[] KetQua = new int[3];
@@ -22,7 +23,8 @@ namespace Main
             Properties.Resources._5 //Tom
         };
         public Bitmap HinhKetQua(int i) => HinhBauCua[KetQua[i - 1]];
-        private Random SinhSoNgauNhien;
+        private Random SinhSoNgauNhien; 
+        #endregion
 
         public ChoiGame()
         {
@@ -33,9 +35,11 @@ namespace Main
 
         public int XocBauCua(int[] TienDatCuoc)
         {
+            #region Lắc bầu cua
             KetQua[0] = SinhSoNgauNhien.Next(6);
             KetQua[1] = SinhSoNgauNhien.Next(6);
-            KetQua[2] = SinhSoNgauNhien.Next(6);
+            KetQua[2] = SinhSoNgauNhien.Next(6); 
+            #endregion
 
             int TongTienDatCuoc = TienDatCuoc.Sum();
 

@@ -26,11 +26,11 @@ namespace Main
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
             finally
             {

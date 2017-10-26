@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,10 @@ namespace Main
             Hide();
             Text = "";
             ControlBox = false;
-            Show(); 
+            Show();
             #endregion
+
+            #region Khởi tạo chương trình
             Choi = new ChoiGame();
             //dat hinh dai dien
             if (frmDangNhap.User.GioiTinh == "Nam")
@@ -37,7 +40,8 @@ namespace Main
             //dat diem cho nguoi choi
             lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
             //dat tai khoan cho nguoi choi
-            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
+            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString(); 
+            #endregion
         }
 
         private void txtDatNai_KeyPress(object sender, KeyPressEventArgs e)
@@ -54,12 +58,14 @@ namespace Main
 
         private void picXoc_Click(object sender, EventArgs e)
         {
+            #region Xử lý các ô đặt cược bị để trống
             XuLyTienCuocKhongHopLe(ref txtDatNai);
             XuLyTienCuocKhongHopLe(ref txtDatBau);
             XuLyTienCuocKhongHopLe(ref txtDatGa);
             XuLyTienCuocKhongHopLe(ref txtDatCa);
             XuLyTienCuocKhongHopLe(ref txtDatCua);
-            XuLyTienCuocKhongHopLe(ref txtDatTom);
+            XuLyTienCuocKhongHopLe(ref txtDatTom); 
+            #endregion
 
             int[] TienDatCuoc =
             {
@@ -76,25 +82,42 @@ namespace Main
                 return;
             }
 
+            #region Hiện kết quả quay hình lên form
             picKetQua1.Image = Choi.HinhKetQua(1);
             picKetQua2.Image = Choi.HinhKetQua(2);
-            picKetQua3.Image = Choi.HinhKetQua(3);
+            picKetQua3.Image = Choi.HinhKetQua(3); 
+            #endregion
 
             lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
             lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
 
-            if (Choi.TaiKhoan.Equals(0))
+            #region Cập nhật điểm của người chơi vào CSDL
+            try
             {
-                if (Convert.ToInt32(frmDangNhap.User.Diem) < Choi.Diem)
+                if (Choi.TaiKhoan.Equals(0))
                 {
-                    frmDangNhap.User.Diem = Choi.Diem.ToString();
-                    new CapNhatDiem(frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem).CapNhat();
+                    if (Convert.ToInt32(frmDangNhap.User.Diem) < Choi.Diem)
+                    {
+                        frmDangNhap.User.Diem = Choi.Diem.ToString();
+                        new CapNhatDiem(frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem).CapNhat();
+                    }
+                    MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
                 }
-                MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            #endregion
         }
 
         private void picHinhDaiDien_Click(object sender, EventArgs e) => Close();
+
+        private void menuDangXuat_Click(object sender, EventArgs e) => Close();
     }
 }

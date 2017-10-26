@@ -8,7 +8,9 @@ namespace Main
 {
     public class KetNoiCSDL
     {
-        protected string TenTaiKhoan = string.Empty, MatKhau = string.Empty, GioiTinh = string.Empty, DiaChi = string.Empty, SoDienThoai = string.Empty, Diem = string.Empty;
+        #region Thuộc tính của người chơi
+        protected string TenTaiKhoan = string.Empty, MatKhau = string.Empty, GioiTinh = string.Empty, DiaChi = string.Empty, SoDienThoai = string.Empty, Diem = string.Empty; 
+        #endregion
         protected SqlConnection KetNoi = null;
         public KetNoiCSDL()
         {
@@ -27,11 +29,11 @@ namespace Main
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
         }
 

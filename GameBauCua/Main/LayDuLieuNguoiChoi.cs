@@ -19,6 +19,7 @@ namespace Main
                 cmd.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
                 cmd.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
 
+                #region Đọc dữ liệu người dùng từ CSDL
                 SqlDataReader DocDuLieu = cmd.ExecuteReader();
                 string taikhoan, matkhau, gioitinh = "", diachi = "", sodienthoai = "", diem = "0";
 
@@ -39,15 +40,16 @@ namespace Main
                     diem = DocDuLieu.GetString(5);
 
                     User = new NguoiChoi(taikhoan, matkhau, gioitinh, diachi, sodienthoai, diem);
-                }
+                } 
+                #endregion
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw ex;
             }
             finally
             {

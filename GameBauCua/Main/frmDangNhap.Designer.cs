@@ -39,9 +39,12 @@
             this.picThoat = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ttipThoatChuongTrinh = new System.Windows.Forms.ToolTip(this.components);
+            this.ctxMenuDangNhap = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picThoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ctxMenuDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -155,11 +158,28 @@
             this.ttipThoatChuongTrinh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttipThoatChuongTrinh.ToolTipTitle = "Thoát";
             // 
+            // ctxMenuDangNhap
+            // 
+            this.ctxMenuDangNhap.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxMenuDangNhap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuThoat});
+            this.ctxMenuDangNhap.Name = "ctxMenuDangNhap";
+            this.ctxMenuDangNhap.Size = new System.Drawing.Size(176, 56);
+            this.ctxMenuDangNhap.Text = "Đăng nhập trò chơi";
+            // 
+            // menuThoat
+            // 
+            this.menuThoat.Name = "menuThoat";
+            this.menuThoat.Size = new System.Drawing.Size(175, 24);
+            this.menuThoat.Text = "Thoát";
+            this.menuThoat.Click += new System.EventHandler(this.menuThoat_Click);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1149, 842);
+            this.ContextMenuStrip = this.ctxMenuDangNhap;
             this.Controls.Add(this.picThoat);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -173,6 +193,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picThoat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ctxMenuDangNhap.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,5 +210,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox picThoat;
         private System.Windows.Forms.ToolTip ttipThoatChuongTrinh;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuDangNhap;
+        private System.Windows.Forms.ToolStripMenuItem menuThoat;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,25 @@ namespace Main
             string GioiTinh = "Nam";
             if (rdNu.Checked)
                 GioiTinh = "Nữ";
-            
-            if (new DangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text).ThucHienDangKy())
+
+            try
             {
-                if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                    Close();
+                if (new DangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text).ThucHienDangKy())
+                {
+                    if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        Close();
+                }
+                else
+                    MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!\nHoặc tên tài khoản đã tồn tại vui lòng sử dụng tên tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Tên tài khoàn và mật khẩu không được để trống!\nHoặc tên tài khoản đã tồn tại vui lòng sử dụng tên tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void frmDangKy_Load(object sender, EventArgs e)
@@ -42,5 +54,7 @@ namespace Main
         }
 
         private void picDangNhap_Click(object sender, EventArgs e) => Close();
+
+        private void menuQuayLai_Click(object sender, EventArgs e) => Close();
     }
 }

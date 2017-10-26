@@ -54,6 +54,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTaiKhoan = new System.Windows.Forms.Label();
             this.ttipHinhDaiDien = new System.Windows.Forms.ToolTip(this.components);
+            this.ctxMenuChoiGame = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -67,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHinhDaiDien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picXoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ctxMenuChoiGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -381,11 +384,27 @@
             this.ttipHinhDaiDien.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttipHinhDaiDien.ToolTipTitle = "Đăng xuất";
             // 
+            // ctxMenuChoiGame
+            // 
+            this.ctxMenuChoiGame.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxMenuChoiGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuDangXuat});
+            this.ctxMenuChoiGame.Name = "ctxMenuChoiGame";
+            this.ctxMenuChoiGame.Size = new System.Drawing.Size(147, 28);
+            // 
+            // menuDangXuat
+            // 
+            this.menuDangXuat.Name = "menuDangXuat";
+            this.menuDangXuat.Size = new System.Drawing.Size(175, 24);
+            this.menuDangXuat.Text = "Đăng xuất";
+            this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1816, 913);
+            this.ContextMenuStrip = this.ctxMenuChoiGame;
             this.Controls.Add(this.lblTaiKhoan);
             this.Controls.Add(this.picHinhDaiDien);
             this.Controls.Add(this.picXoc);
@@ -412,6 +431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHinhDaiDien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picXoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ctxMenuChoiGame.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,6 +464,8 @@
         private System.Windows.Forms.PictureBox picHinhDaiDien;
         private System.Windows.Forms.Label lblTaiKhoan;
         private System.Windows.Forms.ToolTip ttipHinhDaiDien;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuChoiGame;
+        private System.Windows.Forms.ToolStripMenuItem menuDangXuat;
     }
 }
 

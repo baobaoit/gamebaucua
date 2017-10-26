@@ -15,8 +15,10 @@ namespace Main
 
         private void frmIntro_Load(object sender, EventArgs e)
         {
+            #region Tạo 2 hình và khởi động timer
             TaoHaiPictureBox();
-            timer1.Start();
+            timer1.Start(); 
+            #endregion
         }
 
         private void TaoPictureBox(string TenPictureBox, Bitmap HinhAnh, int KichThuocPictureBox, int x, int y)
@@ -40,10 +42,11 @@ namespace Main
 
         private void FrmIntro_Paint(object sender, PaintEventArgs e)
         {
+            #region Vẽ lên form giới thiệu
             //to nen
             HatchBrush CoToNen = new HatchBrush(HatchStyle.Wave, Color.Red, Color.White);
             e.Graphics.FillRectangle(CoToNen, ClientRectangle);
-            
+
             int dx = 4, dy = 3;
             Rectangle KhungHCN = new Rectangle(dx, dy, ClientRectangle.Width, ClientRectangle.Height);
             string GioiThieu = "Game Bầu Cua Tôm Cá\nNhóm Thiếu Nữ";
@@ -60,11 +63,13 @@ namespace Main
             e.Graphics.DrawString(GioiThieu, font, new SolidBrush(Color.Blue), KhungHCN, DinhDangChu);
             //ve vien
             Pen pen = new Pen(Color.Red, 10);
-            e.Graphics.DrawRectangle(pen, ClientRectangle);
+            e.Graphics.DrawRectangle(pen, ClientRectangle); 
+            #endregion
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            #region Xử lý khi 2 hình chạm nhau
             int dx = 5; //toc do di chuyen cua 2 hinh
             //tim 2 hinh trong mang Control cua form
             Control[] pic1 = Controls.Find("pic1", false);
@@ -76,7 +81,8 @@ namespace Main
             if (pic1[0].Bounds.IntersectsWith(pic2[0].Bounds))
             {
                 BatFormMain = true;
-            }
+            } 
+            #endregion
 
             if (BatFormMain)
             {

@@ -49,10 +49,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ttipDangNhap = new System.Windows.Forms.ToolTip(this.components);
             this.ttipThongTinBatBuoc = new System.Windows.Forms.ToolTip(this.components);
+            this.ctxMenuDangKy = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuQuayLai = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDangNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ctxMenuDangKy.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -286,11 +289,27 @@
             this.ttipThongTinBatBuoc.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttipThongTinBatBuoc.ToolTipTitle = "Thông tin bắt buộc";
             // 
+            // ctxMenuDangKy
+            // 
+            this.ctxMenuDangKy.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxMenuDangKy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuQuayLai});
+            this.ctxMenuDangKy.Name = "ctxMenuDangKy";
+            this.ctxMenuDangKy.Size = new System.Drawing.Size(176, 56);
+            // 
+            // menuQuayLai
+            // 
+            this.menuQuayLai.Name = "menuQuayLai";
+            this.menuQuayLai.Size = new System.Drawing.Size(175, 24);
+            this.menuQuayLai.Text = "Quay lại";
+            this.menuQuayLai.Click += new System.EventHandler(this.menuQuayLai_Click);
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 720);
+            this.ContextMenuStrip = this.ctxMenuDangKy;
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
@@ -305,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDangNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ctxMenuDangKy.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +352,7 @@
         private System.Windows.Forms.PictureBox picDangNhap;
         private System.Windows.Forms.ToolTip ttipDangNhap;
         private System.Windows.Forms.ToolTip ttipThongTinBatBuoc;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuDangKy;
+        private System.Windows.Forms.ToolStripMenuItem menuQuayLai;
     }
 }

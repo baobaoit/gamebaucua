@@ -30,6 +30,7 @@ namespace Main
         private void ChuanBiNhacNen()
         {
             DuongDanFileNhac = Application.StartupPath + @"\Nhac\"; //duong dan thu muc Nhac cua game
+            #region Chuẩn bị nhạc nền cho chương trình
             if (Directory.Exists(DuongDanFileNhac)) //kiem tra thu muc Nhac co ton tai khong
             {
                 /*
@@ -67,7 +68,8 @@ namespace Main
                     //tao thu muc Nhac
                     Directory.CreateDirectory(DuongDanFileNhac);
                 }
-            }
+            } 
+            #endregion
         }
 
         private void frmGiaoDienChoiGame_FormClosed(object sender, FormClosedEventArgs e)

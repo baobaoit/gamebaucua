@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Main
@@ -26,21 +27,32 @@ namespace Main
 
         private void DangNhap()
         {
-            User = new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap();
-            if (NguoiChoi.TonTai(User))
+            try
             {
-                if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                User = new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap();
+                if (NguoiChoi.TonTai(User))
                 {
-                    using (frmGiaoDienChoiGame frmGDCG = new frmGiaoDienChoiGame())
+                    if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
-                        Hide();
-                        new frmGiaoDienChoiGame().ShowDialog();
-                        Show();
+                        using (frmGiaoDienChoiGame frmGDCG = new frmGiaoDienChoiGame())
+                        {
+                            Hide();
+                            new frmGiaoDienChoiGame().ShowDialog();
+                            Show();
+                        }
                     }
                 }
+                else
+                    MessageBox.Show("Bạn cần đăng ký hoặc đăng nhập tài khoản trước khi chơi!\nNhấn vào nút đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Bạn cần đăng ký hoặc đăng nhập tài khoản trước khi chơi!\nNhấn vào nút đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         protected override bool ProcessDialogKey(Keys keyData)
@@ -61,5 +73,7 @@ namespace Main
                 e.Cancel = true;
             }
         }
+
+        private void menuThoat_Click(object sender, EventArgs e) => Close();
     }
 }
