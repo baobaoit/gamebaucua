@@ -1,6 +1,5 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
-using System.Windows.Forms;
 using System;
 
 namespace Main
@@ -25,8 +24,10 @@ namespace Main
             try
             {
                 //kiem tra tai khoan co trong CSDL chua
-                SqlCommand cmdTaiKhoanHopLe = new SqlCommand("KiemTraTaiKhoanHopLe", KetNoi);
-                cmdTaiKhoanHopLe.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmdTaiKhoanHopLe = new SqlCommand("KiemTraTaiKhoanHopLe", KetNoi)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmdTaiKhoanHopLe.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
                 string TaiKhoanTrongCSDL = string.Empty;
                 using (SqlDataReader readerDocTaiKhoan = cmdTaiKhoanHopLe.ExecuteReader())
@@ -76,8 +77,10 @@ namespace Main
                 {
                     MoKetNoi();
 
-                    SqlCommand cmdDangKy = new SqlCommand("DangKy", KetNoi);
-                    cmdDangKy.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmdDangKy = new SqlCommand("DangKy", KetNoi)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmdDangKy.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
                     cmdDangKy.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
                     cmdDangKy.Parameters.Add(new SqlParameter("@GioiTinh", GioiTinh));

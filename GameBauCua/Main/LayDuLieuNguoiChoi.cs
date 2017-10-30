@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace Main
 {
@@ -14,8 +13,10 @@ namespace Main
             
             try
             {
-                SqlCommand cmd = new SqlCommand("DangNhap", KetNoi);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("DangNhap", KetNoi)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
                 cmd.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
 

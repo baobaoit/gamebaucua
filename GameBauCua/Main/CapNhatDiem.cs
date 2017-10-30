@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace Main
 {
@@ -18,8 +17,10 @@ namespace Main
 
             try
             {
-                SqlCommand cmd = new SqlCommand("CapNhatDiem", KetNoi);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("CapNhatDiem", KetNoi)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@TenTaiKhoan", TenTaiKhoan));
                 cmd.Parameters.Add(new SqlParameter("@DiemCapNhat", Diem));
                 cmd.ExecuteNonQuery();

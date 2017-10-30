@@ -7,7 +7,7 @@ namespace Main
 {
     public partial class frmGioiThieu : Form
     {
-        bool BatFormMain = false;
+        private bool BatFormMain = false;
         public frmGioiThieu()
         {
             InitializeComponent();
@@ -21,23 +21,12 @@ namespace Main
             #endregion
         }
 
-        private void TaoPictureBox(string TenPictureBox, Bitmap HinhAnh, int KichThuocPictureBox, int x, int y)
-        {
-            PictureBox pic = new PictureBox();
-            pic.Name = TenPictureBox;
-            pic.Image = HinhAnh;
-            pic.Size = new Size(KichThuocPictureBox, KichThuocPictureBox);
-            pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic.Location = new Point(x, y);
-            Controls.Add(pic);
-        }
-
         private void TaoHaiPictureBox()
         {
             //pic1
-            TaoPictureBox("pic1", Properties.Resources._1, 69, 5, ClientRectangle.Height / 3);
+            Controls.Add(TaoPictureBox.Tao("pic1", Properties.Resources._1, new Size(69, 69), 5, ClientRectangle.Height / 3));
             //pic2
-            TaoPictureBox("pic2", Properties.Resources._2, 69, ClientRectangle.Width - 74, ClientRectangle.Height / 3);
+            Controls.Add(TaoPictureBox.Tao("pic2", Properties.Resources._2, new Size(69, 69), ClientRectangle.Width - 74, ClientRectangle.Height / 3));
         }
 
         private void FrmIntro_Paint(object sender, PaintEventArgs e)
@@ -51,10 +40,12 @@ namespace Main
             Rectangle KhungHCN = new Rectangle(dx, dy, ClientRectangle.Width, ClientRectangle.Height);
             string GioiThieu = "Game Bầu Cua Tôm Cá\nNhóm Thiếu Nữ";
             Font font = new Font("Arial", 28, FontStyle.Bold);
-            StringFormat DinhDangChu = new StringFormat();
-            //canh giua
-            DinhDangChu.Alignment = StringAlignment.Center;
-            DinhDangChu.LineAlignment = StringAlignment.Center;
+            StringFormat DinhDangChu = new StringFormat
+            {
+                //canh giua
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
             //ve bong cua chu
             e.Graphics.DrawString(GioiThieu, font, new SolidBrush(Color.Brown), KhungHCN, DinhDangChu);
             KhungHCN.X -= dx;

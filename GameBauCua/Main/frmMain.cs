@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Main
@@ -31,28 +25,35 @@ namespace Main
             #region Khởi tạo chương trình
             Choi = new ChoiGame();
             //dat hinh dai dien
-            if (frmDangNhap.User.GioiTinh == "Nam")
-                picHinhDaiDien.Image = Properties.Resources.nam;
-            else
-                picHinhDaiDien.Image = Properties.Resources.nu;
+            picHinhDaiDien.Image = (frmDangNhap.User.GioiTinh == "Nữ") ? Properties.Resources.nu : Properties.Resources.nam;
             //dat ten tai khoan
             lblTenNguoiChoi.Text = "Tên người chơi: " + frmDangNhap.User.TenTaiKhoan;
             //dat diem cho nguoi choi
+            if (frmDangNhap.User.Diem == "0")
+                MessageBox.Show("Chương trình xin tặng bạn 500 điểm để chơi game.\nChúc bạn chơi game vui vẻ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
-            //dat tai khoan cho nguoi choi
-            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString(); 
             #endregion
         }
 
         private void txtDatNai_KeyPress(object sender, KeyPressEventArgs e)
         {
+            #region Xử lý chỉ cho nhập ký tự số và phím điều khiển
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
+                e.Handled = true; 
+            #endregion
         }
 
         private void XuLyTienCuocKhongHopLe(ref TextBox TienCuoc)
         {
+            #region Xử lý ô đặt cược bị bỏ trống
             if (string.IsNullOrEmpty(TienCuoc.Text))
+                TienCuoc.Text = "0"; 
+            #endregion
+        }
+
+        private void DatLaiTienCuoc(ref TextBox TienCuoc)
+        {
+            if (TienCuoc.Text != "0")
                 TienCuoc.Text = "0";
         }
 
@@ -64,9 +65,10 @@ namespace Main
             XuLyTienCuocKhongHopLe(ref txtDatGa);
             XuLyTienCuocKhongHopLe(ref txtDatCa);
             XuLyTienCuocKhongHopLe(ref txtDatCua);
-            XuLyTienCuocKhongHopLe(ref txtDatTom); 
+            XuLyTienCuocKhongHopLe(ref txtDatTom);
             #endregion
 
+            #region Đưa các giá trị đặt cược vào mảng
             int[] TienDatCuoc =
             {
                 Convert.ToInt32(txtDatNai.Text),
@@ -74,36 +76,62 @@ namespace Main
                 Convert.ToInt32(txtDatGa.Text),
                 Convert.ToInt32(txtDatCa.Text),
                 Convert.ToInt32(txtDatCua.Text),
-                Convert.ToInt32(txtDatTom.Text),
-            };
+                Convert.ToInt32(txtDatTom.Text)
+            }; 
+            #endregion
+
             if (Choi.XocBauCua(TienDatCuoc).Equals(0))
             {
                 MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            #region Hiện form Đếm ngược
+            using (frmDemNguoc DemNguoc = new frmDemNguoc())
+            {
+                DemNguoc.ShowDialog();
+            }
+            #endregion
+
             #region Hiện kết quả quay hình lên form
             picKetQua1.Image = Choi.HinhKetQua(1);
             picKetQua2.Image = Choi.HinhKetQua(2);
-            picKetQua3.Image = Choi.HinhKetQua(3); 
+            picKetQua3.Image = Choi.HinhKetQua(3);
             #endregion
 
-            lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
-            lblTaiKhoan.Text = "Tài khoản: " + Choi.TaiKhoan.ToString();
+            if (MessageBox.Show(Choi.ThongBao, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                #region Đặt lại các ô đặt cược về 0
+                DatLaiTienCuoc(ref txtDatNai);
+                DatLaiTienCuoc(ref txtDatBau);
+                DatLaiTienCuoc(ref txtDatGa);
+                DatLaiTienCuoc(ref txtDatCa);
+                DatLaiTienCuoc(ref txtDatCua);
+                DatLaiTienCuoc(ref txtDatTom);
+                #endregion
+            }
 
-            #region Cập nhật điểm của người chơi vào CSDL
+            lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
+
+            #region Xử lý khi người chơi hết điểm
+            if (Choi.Diem.Equals(0))
+            {
+                if (MessageBox.Show("Tài khoản của bạn đã hết!\nBạn có muốn nhận 500 điểm để chơi lại không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Choi.Diem = 500;
+                }
+                else
+                    Close();
+            }
+            #endregion
+        }
+
+        private void CapNhatDiemNguoiChoi()
+        {
             try
             {
-                if (Choi.TaiKhoan.Equals(0))
-                {
-                    if (Convert.ToInt32(frmDangNhap.User.Diem) < Choi.Diem)
-                    {
-                        frmDangNhap.User.Diem = Choi.Diem.ToString();
-                        new CapNhatDiem(frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem).CapNhat();
-                    }
-                    MessageBox.Show("Tài khoản của bạn đã hết!\nĐể chơi lại bấm vào nút Chơi ngay.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
+                frmDangNhap.User.Diem = Choi.Diem.ToString();
+                new CapNhatDiem(frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem).CapNhat();
             }
             catch (SqlException ex)
             {
@@ -113,11 +141,16 @@ namespace Main
             {
                 MessageBox.Show("Lỗi khác.\n" + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            #endregion
         }
 
         private void picHinhDaiDien_Click(object sender, EventArgs e) => Close();
 
         private void menuDangXuat_Click(object sender, EventArgs e) => Close();
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e) =>
+        #region Cập nhật điểm của người chơi vào CSDL khi người chơi đóng form
+            CapNhatDiemNguoiChoi();
+        #endregion
+
     }
 }

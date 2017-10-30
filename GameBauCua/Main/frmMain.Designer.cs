@@ -52,7 +52,6 @@
             this.picHinhDaiDien = new System.Windows.Forms.PictureBox();
             this.picXoc = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblTaiKhoan = new System.Windows.Forms.Label();
             this.ttipHinhDaiDien = new System.Windows.Forms.ToolTip(this.components);
             this.ctxMenuChoiGame = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
@@ -316,9 +315,9 @@
             this.lblDiem.Location = new System.Drawing.Point(153, 190);
             this.lblDiem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiem.Name = "lblDiem";
-            this.lblDiem.Size = new System.Drawing.Size(221, 39);
+            this.lblDiem.Size = new System.Drawing.Size(141, 39);
             this.lblDiem.TabIndex = 2;
-            this.lblDiem.Text = "Điểm: 10000";
+            this.lblDiem.Text = "Điểm: 0";
             // 
             // picHinhDaiDien
             // 
@@ -366,19 +365,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lblTaiKhoan
-            // 
-            this.lblTaiKhoan.AutoSize = true;
-            this.lblTaiKhoan.BackColor = System.Drawing.Color.Maroon;
-            this.lblTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTaiKhoan.ForeColor = System.Drawing.Color.Yellow;
-            this.lblTaiKhoan.Location = new System.Drawing.Point(153, 240);
-            this.lblTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTaiKhoan.Name = "lblTaiKhoan";
-            this.lblTaiKhoan.Size = new System.Drawing.Size(296, 39);
-            this.lblTaiKhoan.TabIndex = 7;
-            this.lblTaiKhoan.Text = "Tài khoản: 10000";
-            // 
             // ttipHinhDaiDien
             // 
             this.ttipHinhDaiDien.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
@@ -395,7 +381,7 @@
             // menuDangXuat
             // 
             this.menuDangXuat.Name = "menuDangXuat";
-            this.menuDangXuat.Size = new System.Drawing.Size(175, 24);
+            this.menuDangXuat.Size = new System.Drawing.Size(146, 24);
             this.menuDangXuat.Text = "Đăng xuất";
             this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
             // 
@@ -405,7 +391,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1816, 913);
             this.ContextMenuStrip = this.ctxMenuChoiGame;
-            this.Controls.Add(this.lblTaiKhoan);
             this.Controls.Add(this.picHinhDaiDien);
             this.Controls.Add(this.picXoc);
             this.Controls.Add(this.lblDiem);
@@ -416,6 +401,7 @@
             this.Name = "frmMain";
             this.Text = "Chơi game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -462,7 +448,6 @@
         private System.Windows.Forms.Label lblDiem;
         private System.Windows.Forms.PictureBox picXoc;
         private System.Windows.Forms.PictureBox picHinhDaiDien;
-        private System.Windows.Forms.Label lblTaiKhoan;
         private System.Windows.Forms.ToolTip ttipHinhDaiDien;
         private System.Windows.Forms.ContextMenuStrip ctxMenuChoiGame;
         private System.Windows.Forms.ToolStripMenuItem menuDangXuat;

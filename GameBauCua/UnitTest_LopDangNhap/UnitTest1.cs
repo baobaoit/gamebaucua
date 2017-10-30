@@ -36,5 +36,15 @@ namespace UnitTest_LopDangNhap
             bool MongMuon = false;
             Assert.AreEqual(MongMuon, NguoiChoi.TonTai(nguoiChoi));
         }
+
+        [TestMethod]
+        public void TestDangNhapKhongHopLe3()
+        {
+            // tai khoan co trong csdl nhung mat khau de trong
+            dangNhap = new DangNhap("us1", "");
+            NguoiChoi nguoiChoi = dangNhap.ThucHienDangNhap();
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, NguoiChoi.TonTai(nguoiChoi));
+        }
     }
 }

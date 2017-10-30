@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Main
 {
@@ -11,7 +8,6 @@ namespace Main
     {
         #region Thuộc tính
         public int Diem { get; set; }
-        public int TaiKhoan { get; set; }
         private int[] KetQua = new int[3];
         private Bitmap[] HinhBauCua =
         {
@@ -22,16 +18,28 @@ namespace Main
             Properties.Resources._4, //Cua
             Properties.Resources._5 //Tom
         };
-        public Bitmap HinhKetQua(int i) => HinhBauCua[KetQua[i - 1]];
+        private string[] Ten =
+        {
+            "Nai",
+            "Bầu",
+            "Gà",
+            "Cá",
+            "Cua",
+            "Tôm"
+        };
+        public string ThongBao { get; set; }
+
         private Random SinhSoNgauNhien; 
         #endregion
 
         public ChoiGame()
         {
-            Diem = 0;
-            TaiKhoan = 1000;
+            int DiemNguoiChoi = Convert.ToInt32(frmDangNhap.User.Diem);
+            Diem = (DiemNguoiChoi == 0) ? 500 : DiemNguoiChoi;
             SinhSoNgauNhien = new Random();
         }
+
+        public Bitmap HinhKetQua(int i) => HinhBauCua[KetQua[i - 1]];
 
         public int XocBauCua(int[] TienDatCuoc)
         {
@@ -43,7 +51,7 @@ namespace Main
 
             int TongTienDatCuoc = TienDatCuoc.Sum();
 
-            if (TongTienDatCuoc > TaiKhoan || TongTienDatCuoc == 0)
+            if (TongTienDatCuoc > Diem || TongTienDatCuoc == 0)
             {
                 return 0;
             }
@@ -56,16 +64,27 @@ namespace Main
                 KetQuaXoc[KetQua[1]]++;
                 KetQuaXoc[KetQua[2]]++;
 
-                //tru tien cuoc vao diem
-                TaiKhoan -= TongTienDatCuoc;
-
-                //tinh diem
-                foreach (int ketqua in KetQua)
+                bool CoDatCuoc = false, CoQuayTrung = false;
+                ThongBao = "";
+                for (int i = 0; i < KetQuaXoc.Length; i++)
                 {
-                    if (!TienDatCuoc[ketqua].Equals(0))
+                    CoDatCuoc = TienDatCuoc[i] != 0;
+                    CoQuayTrung = KetQuaXoc[i] != 0;
+
+                    if (CoDatCuoc)
                     {
-                        Diem += (KetQuaXoc[ketqua] == 1) ? 10 : (KetQuaXoc[ketqua] == 2) ? 50 : 100;
-                        TaiKhoan += TienDatCuoc[ketqua];
+                        if (CoQuayTrung)
+                        {
+                            int TienThuong = (TienDatCuoc[i] * KetQuaXoc[i]);
+                            Diem += TienThuong;
+                            ThongBao += string.Format("Bạn nhận được (+{0} điểm) từ đặt {1}\n", TienThuong, Ten[i]);
+                        }
+                        else //khong quay trung
+                        {
+                            int TruTien = TienDatCuoc[i];
+                            Diem -= TruTien;
+                            ThongBao += string.Format("Bạn bị mất (-{0} điểm) từ đặt {1}\n", TruTien, Ten[i]);
+                        }
                     }
                 }
             }

@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-using System.Windows.Forms;
 
 namespace Main
 {
