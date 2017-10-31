@@ -6,15 +6,18 @@ namespace Main
 {
     public partial class frmGiaoDienChoiGame : Form
     {
-        private NhacNen NHAC_NEN = new NhacNen();
-        private string DuongDanFileNhac = string.Empty;
+        public static NhacNen NHAC_NEN = new NhacNen();
+        public static string DuongDanFileNhac = string.Empty;
 
         public frmGiaoDienChoiGame()
         {
             InitializeComponent();
         }
 
-        private void picXemDiem_Click(object sender, EventArgs e) => MessageBox.Show(string.Format("Điểm của {0}: {1}", frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem), "Xem điểm");
+        private void picXemDiem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(string.Format("Điểm của {0}: {1}", frmDangNhap.User.TenTaiKhoan, frmDangNhap.User.Diem), "Xem điểm");
+        }
 
         private void frmGiaoDienChoiGame_Load(object sender, EventArgs e)
         {
@@ -93,7 +96,7 @@ namespace Main
             }
         }
 
-        private void ChonFileNhacNen()
+        public static void ChonFileNhacNen()
         {
             using (OpenFileDialog ChonNhacNen = new OpenFileDialog())
             {
@@ -109,8 +112,14 @@ namespace Main
             }
         }
 
-        private void picCaiDat_Click(object sender, EventArgs e) => ChonFileNhacNen();
+        private void picCaiDat_Click(object sender, EventArgs e)
+        {
+            ChonFileNhacNen();
+        }
 
-        private void picThoat_Click(object sender, EventArgs e) => Close();
+        private void picThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

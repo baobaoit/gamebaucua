@@ -14,10 +14,12 @@ namespace Main
             InitializeComponent();
         }
 
-        private void frmDemNguoc_Load(object sender, EventArgs e) =>
-        #region Khởi động timer
+        private void frmDemNguoc_Load(object sender, EventArgs e)
+        {
+            #region Khởi động timer
             timer1.Start();
-        #endregion
+            #endregion
+        }
 
 
         private void frmDemNguoc_Paint(object sender, PaintEventArgs e)

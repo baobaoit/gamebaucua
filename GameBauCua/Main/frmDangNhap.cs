@@ -23,7 +23,10 @@ namespace Main
             }
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e) => DangNhap();
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            DangNhap();
+        }
 
         private void DangNhap()
         {
@@ -64,7 +67,10 @@ namespace Main
             return base.ProcessDialogKey(keyData);
         }
 
-        private void picThoat_Click(object sender, EventArgs e) => Close();
+        private void picThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -74,6 +80,9 @@ namespace Main
             }
         }
 
-        private void menuThoat_Click(object sender, EventArgs e) => Close();
+        private void menuThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

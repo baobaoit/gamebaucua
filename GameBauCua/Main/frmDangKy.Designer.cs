@@ -151,8 +151,10 @@
             this.txtSoDienThoai.Location = new System.Drawing.Point(251, 348);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.ShortcutsEnabled = false;
             this.txtSoDienThoai.Size = new System.Drawing.Size(419, 34);
             this.txtSoDienThoai.TabIndex = 5;
+            this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
             // txtDiaChi
             // 
@@ -295,12 +297,12 @@
             this.ctxMenuDangKy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuQuayLai});
             this.ctxMenuDangKy.Name = "ctxMenuDangKy";
-            this.ctxMenuDangKy.Size = new System.Drawing.Size(176, 56);
+            this.ctxMenuDangKy.Size = new System.Drawing.Size(133, 28);
             // 
             // menuQuayLai
             // 
             this.menuQuayLai.Name = "menuQuayLai";
-            this.menuQuayLai.Size = new System.Drawing.Size(175, 24);
+            this.menuQuayLai.Size = new System.Drawing.Size(132, 24);
             this.menuQuayLai.Text = "Quay lại";
             this.menuQuayLai.Click += new System.EventHandler(this.menuQuayLai_Click);
             // 

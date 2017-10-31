@@ -47,8 +47,20 @@ namespace Main
             #endregion
         }
 
-        private void picDangNhap_Click(object sender, EventArgs e) => Close();
+        private void picDangNhap_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-        private void menuQuayLai_Click(object sender, EventArgs e) => Close();
+        private void menuQuayLai_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

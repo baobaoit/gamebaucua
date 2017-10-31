@@ -23,7 +23,7 @@ namespace Main
             #endregion
 
             #region Khởi tạo chương trình
-            Choi = new ChoiGame();
+            Choi = new ChoiGame(Convert.ToInt32(frmDangNhap.User.Diem));
             //dat hinh dai dien
             picHinhDaiDien.Image = (frmDangNhap.User.GioiTinh == "Nữ") ? Properties.Resources.nu : Properties.Resources.nam;
             //dat ten tai khoan
@@ -77,10 +77,11 @@ namespace Main
                 Convert.ToInt32(txtDatCa.Text),
                 Convert.ToInt32(txtDatCua.Text),
                 Convert.ToInt32(txtDatTom.Text)
-            }; 
+            };
             #endregion
 
-            if (Choi.XocBauCua(TienDatCuoc).Equals(0))
+            Choi.Xoc();
+            if (Choi.Mo(TienDatCuoc).Equals(0))
             {
                 MessageBox.Show("Số tiền đặt cược không được vượt quá số tài khoản hiện có!\nHoặc bạn chưa đặt tiền cược!\nVui lòng điều chỉnh lại tiền đặt cược!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -144,14 +145,36 @@ namespace Main
             }
         }
 
-        private void picHinhDaiDien_Click(object sender, EventArgs e) => Close();
+        private void picHinhDaiDien_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-        private void menuDangXuat_Click(object sender, EventArgs e) => Close();
+        private void menuDangXuat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e) =>
-        #region Cập nhật điểm của người chơi vào CSDL khi người chơi đóng form
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            #region Cập nhật điểm của người chơi vào CSDL khi người chơi đóng form
             CapNhatDiemNguoiChoi();
-        #endregion
+            #endregion
+        }
 
+        private void menuChonNhac_Click(object sender, EventArgs e)
+        {
+            frmGiaoDienChoiGame.ChonFileNhacNen();
+        }
+
+        private void menuPhatNhac_Click(object sender, EventArgs e)
+        {
+            frmGiaoDienChoiGame.NHAC_NEN.PhatNhac();
+        }
+
+        private void menuTamDung_Click(object sender, EventArgs e)
+        {
+            frmGiaoDienChoiGame.NHAC_NEN.TamDungChoiNhac();
+        }
     }
 }

@@ -54,6 +54,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ttipHinhDaiDien = new System.Windows.Forms.ToolTip(this.components);
             this.ctxMenuChoiGame = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuChonNhac = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPhatNhac = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTamDung = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -374,14 +378,44 @@
             // 
             this.ctxMenuChoiGame.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ctxMenuChoiGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuChonNhac,
+            this.menuPhatNhac,
+            this.menuTamDung,
+            this.toolStripSeparator1,
             this.menuDangXuat});
             this.ctxMenuChoiGame.Name = "ctxMenuChoiGame";
-            this.ctxMenuChoiGame.Size = new System.Drawing.Size(147, 28);
+            this.ctxMenuChoiGame.Size = new System.Drawing.Size(182, 134);
+            // 
+            // menuChonNhac
+            // 
+            this.menuChonNhac.Name = "menuChonNhac";
+            this.menuChonNhac.Size = new System.Drawing.Size(181, 24);
+            this.menuChonNhac.Text = "Chọn nhạc";
+            this.menuChonNhac.Click += new System.EventHandler(this.menuChonNhac_Click);
+            // 
+            // menuPhatNhac
+            // 
+            this.menuPhatNhac.Name = "menuPhatNhac";
+            this.menuPhatNhac.Size = new System.Drawing.Size(181, 24);
+            this.menuPhatNhac.Text = "Phát nhạc";
+            this.menuPhatNhac.Click += new System.EventHandler(this.menuPhatNhac_Click);
+            // 
+            // menuTamDung
+            // 
+            this.menuTamDung.Name = "menuTamDung";
+            this.menuTamDung.Size = new System.Drawing.Size(181, 24);
+            this.menuTamDung.Text = "Tạm dừng nhạc";
+            this.menuTamDung.Click += new System.EventHandler(this.menuTamDung_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
             // 
             // menuDangXuat
             // 
             this.menuDangXuat.Name = "menuDangXuat";
-            this.menuDangXuat.Size = new System.Drawing.Size(146, 24);
+            this.menuDangXuat.Size = new System.Drawing.Size(181, 24);
             this.menuDangXuat.Text = "Đăng xuất";
             this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
             // 
@@ -451,6 +485,10 @@
         private System.Windows.Forms.ToolTip ttipHinhDaiDien;
         private System.Windows.Forms.ContextMenuStrip ctxMenuChoiGame;
         private System.Windows.Forms.ToolStripMenuItem menuDangXuat;
+        private System.Windows.Forms.ToolStripMenuItem menuChonNhac;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem menuPhatNhac;
+        private System.Windows.Forms.ToolStripMenuItem menuTamDung;
     }
 }
 

@@ -21,6 +21,9 @@
             this.Diem = Diem;
         }
 
-        public static bool TonTai(NguoiChoi nguoiChoi) => nguoiChoi != null;
+        public static bool TonTai(NguoiChoi nguoiChoi)
+        {
+            return nguoiChoi != null;
+        }
     }
 }
