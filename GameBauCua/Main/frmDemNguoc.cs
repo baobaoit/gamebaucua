@@ -36,12 +36,13 @@ namespace Main
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
+            var VietThongBao = (DemNguoc == 0) ? "Mở!" : DemNguoc.ToString();
             //ve bong cua chu
-            e.Graphics.DrawString(DemNguoc.ToString(), font, new SolidBrush(Color.Brown), KhungHCN, DinhDangChu);
+            e.Graphics.DrawString(VietThongBao, font, new SolidBrush(Color.Brown), KhungHCN, DinhDangChu);
             KhungHCN.X -= dx;
             KhungHCN.Y -= dy;
             //ve chu
-            e.Graphics.DrawString(DemNguoc.ToString(), font, new SolidBrush(Color.Blue), KhungHCN, DinhDangChu);
+            e.Graphics.DrawString(VietThongBao, font, new SolidBrush(Color.Blue), KhungHCN, DinhDangChu);
             //ve vien
             Pen pen = new Pen(Color.Red, 10);
             e.Graphics.DrawRectangle(pen, ClientRectangle);
@@ -53,7 +54,7 @@ namespace Main
             #region Xử lý đếm ngược thời gian
             DemNguoc--;
             Invalidate();
-            if (DemNguoc == 0)
+            if (DemNguoc == -1)
             {
                 BatFormMain = true;
             }

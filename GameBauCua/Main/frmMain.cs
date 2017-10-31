@@ -119,6 +119,7 @@ namespace Main
                 if (MessageBox.Show("Tài khoản của bạn đã hết!\nBạn có muốn nhận 500 điểm để chơi lại không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Choi.Diem = 500;
+                    lblDiem.Text = "Điểm: " + Choi.Diem.ToString();
                 }
                 else
                     Close();
