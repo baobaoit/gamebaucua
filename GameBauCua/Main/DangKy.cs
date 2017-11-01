@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using System;
+using System.Text.RegularExpressions;
 
 namespace Main
 {
@@ -15,6 +16,21 @@ namespace Main
             this.SoDienThoai = SoDienThoai.Trim();
         }
 
+        public static bool KiemTra(string input)
+        {
+            // kiem tra toi thieu 6 ky tu khong
+            if (input.Length < 6 || input.Length > 12)
+                return false; // dung kiem tra luon
+            #region Tên tài khoản có tối thiểu 6 ký tự
+            // khong phai la ky tu chu, ky tu so, _
+            Regex regexChuSoKhoangTrang = new Regex(@"\W");
+            if (regexChuSoKhoangTrang.IsMatch(input))
+                return false;
+            #endregion
+
+            return true;
+        }
+
         private bool CoTheDangKy()
         {
             bool CoThe = false;
@@ -23,7 +39,7 @@ namespace Main
 
             try
             {
-                //kiem tra tai khoan co trong CSDL chua
+                // kiem tra tai khoan co trong CSDL chua
                 SqlCommand cmdTaiKhoanHopLe = new SqlCommand("KiemTraTaiKhoanHopLe", KetNoi)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -57,7 +73,7 @@ namespace Main
                 DongKetNoi();
             }
 
-            return CoThe;
+            return CoThe && KiemTra(TenTaiKhoan) && KiemTra(MatKhau);
         }
 
         public bool ThucHienDangKy()
@@ -69,11 +85,11 @@ namespace Main
 
             try
             {
-                if (!CoTheDangKy()) //tai khoan da co trong CSDL
+                if (!CoTheDangKy()) // tai khoan da co trong CSDL
                 {
                     return false;
                 }
-                else //tai khoan chua co trong CSDL
+                else // tai khoan chua co trong CSDL
                 {
                     MoKetNoi();
 

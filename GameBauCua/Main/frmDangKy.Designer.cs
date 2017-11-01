@@ -51,6 +51,7 @@
             this.ttipThongTinBatBuoc = new System.Windows.Forms.ToolTip(this.components);
             this.ctxMenuDangKy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuQuayLai = new System.Windows.Forms.ToolStripMenuItem();
+            this.ttipTDNMK = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDangNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDangKy)).BeginInit();
@@ -142,14 +143,19 @@
             // 
             this.txtTenDangNhap.Location = new System.Drawing.Point(251, 140);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenDangNhap.MaxLength = 12;
             this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.ShortcutsEnabled = false;
             this.txtTenDangNhap.Size = new System.Drawing.Size(419, 34);
             this.txtTenDangNhap.TabIndex = 0;
+            this.ttipTDNMK.SetToolTip(this.txtTenDangNhap, "Từ 6-12 ký tự (bao gồm chữ, số và dấu “_”; không chứa các ký tự đặc biệt). Có phâ" +
+        "n biệt chữ hoa và chữ thường.");
             // 
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Location = new System.Drawing.Point(251, 348);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSoDienThoai.MaxLength = 12;
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.ShortcutsEnabled = false;
             this.txtSoDienThoai.Size = new System.Drawing.Size(419, 34);
@@ -160,8 +166,10 @@
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(251, 294);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiaChi.MaxLength = 100;
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.ShortcutsEnabled = false;
             this.txtDiaChi.Size = new System.Drawing.Size(419, 35);
             this.txtDiaChi.TabIndex = 4;
             // 
@@ -169,10 +177,14 @@
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(251, 193);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatKhau.MaxLength = 12;
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '•';
+            this.txtMatKhau.ShortcutsEnabled = false;
             this.txtMatKhau.Size = new System.Drawing.Size(419, 34);
             this.txtMatKhau.TabIndex = 1;
+            this.ttipTDNMK.SetToolTip(this.txtMatKhau, "Từ 6-12 ký tự (bao gồm chữ, số và dấu “_”; không chứa các ký tự đặc biệt). Có phâ" +
+        "n biệt chữ hoa và chữ thường.");
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -306,6 +318,10 @@
             this.menuQuayLai.Text = "Quay lại";
             this.menuQuayLai.Click += new System.EventHandler(this.menuQuayLai_Click);
             // 
+            // ttipTDNMK
+            // 
+            this.ttipTDNMK.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,5 +372,6 @@
         private System.Windows.Forms.ToolTip ttipThongTinBatBuoc;
         private System.Windows.Forms.ContextMenuStrip ctxMenuDangKy;
         private System.Windows.Forms.ToolStripMenuItem menuQuayLai;
+        private System.Windows.Forms.ToolTip ttipTDNMK;
     }
 }

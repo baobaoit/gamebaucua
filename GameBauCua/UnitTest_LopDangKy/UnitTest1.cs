@@ -7,74 +7,120 @@ namespace UnitTest_LopDangKy
     [TestClass]
     public class UnitTest1
     {
-        DangKy dangKy = null;
-        XoaTaiKhoan xoaTaiKhoan = new XoaTaiKhoan(); // sau khi test dang ky xong phai xoa tai khoan dung de test
-        string TenTaiKhoan = "us3"; // ten tai khoan dung de test
+        #region Test mật khẩu
         [TestMethod]
-        public void TestDangKyHopLe1()
+        public void TestDangKyMatKhauHopLe1()
         {
-            // hop le 1: chi can ten tai khoan va mat khau
-            string MatKhau = "us3";
-            dangKy = new DangKy(TenTaiKhoan, MatKhau, "", "", "");
+            // mat khau co 6 ky tu
             bool MongMuon = true;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
-            xoaTaiKhoan.Xoa(TenTaiKhoan);
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("Nhile2"));
         }
 
         [TestMethod]
-        public void TestDangKyHopLe2()
+        public void TestDangKyMatKhauHopLe2()
         {
-            // hop le 2: dang ky day du thong tin
+            // mat khau co 12 ky tu
             bool MongMuon = true;
-            dangKy = new DangKy(TenTaiKhoan, "us3", "Nam", "Khong biet", "097");
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
-            xoaTaiKhoan.Xoa(TenTaiKhoan);
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("NhihuuLe1234"));
         }
 
         [TestMethod]
-        public void TestDangKyHopLe3()
+        public void TestDangKyMatKhauHopLe3()
         {
-            // hop le 3: trung mat khau
-            dangKy = new DangKy(TenTaiKhoan, "Admin", "gt", "dc", "sdt");
+            // mat khau co 7 ky tu
             bool MongMuon = true;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
-            xoaTaiKhoan.Xoa(TenTaiKhoan);
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("N123456"));
         }
 
         [TestMethod]
-        public void TestDangKyKhongHopLe1()
+        public void TestDangKyMatKhauKhongHopLe1()
         {
-            // khong hop le 1: bo trong hoan toan
-            dangKy = new DangKy("", "", "", "", "");
+            // mat khau co 5 ky tu
             bool MongMuon = false;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhile"));
         }
 
         [TestMethod]
-        public void TestDangKyKhongHopLe2()
+        public void TestDangKyMatKhauKhongHopLe2()
         {
-            // khong hop le 2: bo trong tai khoan
-            dangKy = new DangKy("", "mk", "gt", "dc", "sdt");
+            // mat khau co 13 ky tu
             bool MongMuon = false;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhihuule12345"));
         }
 
         [TestMethod]
-        public void TestDangKyKhongHopLe3()
+        public void TestDangKyMatKhauKhongHopLe3()
         {
-            // khong hop le 3: bo trong mat khau
-            dangKy = new DangKy(TenTaiKhoan, "", "gt", "dc", "sdt");
+            // mat khau co 6 ky tu, trong do co ky tu dac biet
             bool MongMuon = false;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhi,. "));
+        }
+        #endregion
+
+        #region Test tài khoản
+        [TestMethod]
+        public void TestDangKyTaiKhoanHopLe1()
+        {
+            // tai khoan co toi thieu 6 ky tu
+            bool MongMuon = true;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhile123"));
         }
 
         [TestMethod]
-        public void TestDangKyKhongHopLe4()
+        public void TestDangKyTaiKhoanHopLe2()
         {
-            // khong hop le 4: trung ten tai khoan
-            dangKy = new DangKy("Admin", "mk", "gt", "dc", "sdt");
-            bool MongMuon = false;
-            Assert.AreEqual(MongMuon, dangKy.ThucHienDangKy());
+            // tai khoan co 8 ky tu
+            bool MongMuon = true;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhi123"));
         }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanHopLe3()
+        {
+            // tai khoan co 12 ky tu
+            bool MongMuon = true;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("Lê_Hữu_Nhị_2"));
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe1()
+        {
+            // nhap ten tai khoan 5 ky tu
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("NhiLe"));
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe2()
+        {
+            // nhap ten tai khoan 13 ky tu
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("NhiHuuLe12345"));
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe3()
+        {
+            // nhap ten tai khoan 6 ky tu, co ky tu dac biet
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("nhi@,."));
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe4()
+        {
+            // nhap ten tai khoan 6 ky tu, khoang trang o vi tri dau tien
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra(" HuuLe"));
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe5()
+        {
+            // nhap ten tai khoan 6 ky tu, trong do co 2 khoang trang lien tiep
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra("Nhi  2"));
+        } 
+        #endregion
     }
 }
