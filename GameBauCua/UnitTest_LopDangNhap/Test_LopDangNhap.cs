@@ -5,7 +5,7 @@ using Main;
 namespace UnitTest_LopDangNhap
 {
     [TestClass]
-    public class UnitTest1
+    public class Test_LopDangNhap
     {
         DangNhap dangNhap = null;
         [TestMethod]

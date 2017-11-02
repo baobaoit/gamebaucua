@@ -7,13 +7,19 @@ namespace Main
 {
     public class DangKy : KetNoiCSDL
     {
-        public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh, string DiaChi, string SoDienThoai)
+        public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh, string DiaChi = "", string SoDienThoai = "")
         {
-            this.TenTaiKhoan = TenTaiKhoan.Trim();
-            this.MatKhau = MatKhau.Trim();
-            this.GioiTinh = GioiTinh.Trim();
-            this.DiaChi = DiaChi.Trim();
-            this.SoDienThoai = SoDienThoai.Trim();
+            if (TenTaiKhoan == string.Empty)
+                throw new ArgumentException("Tên tài khoản không được để trống!");
+
+            if (MatKhau == string.Empty)
+                throw new ArgumentException("Mật khẩu không được để trống!");
+
+            this.TenTaiKhoan = TenTaiKhoan;
+            this.MatKhau = MatKhau;
+            this.GioiTinh = GioiTinh;
+            this.DiaChi = DiaChi;
+            this.SoDienThoai = SoDienThoai;
         }
 
         public static bool KiemTra(string input)
@@ -23,8 +29,8 @@ namespace Main
                 return false; // dung kiem tra luon
             #region Tên tài khoản có tối thiểu 6 ký tự
             // khong phai la ky tu chu, ky tu so, _
-            Regex regexChuSoKhoangTrang = new Regex(@"\W");
-            if (regexChuSoKhoangTrang.IsMatch(input))
+            Regex regex = new Regex(@"\W");
+            if (regex.IsMatch(input))
                 return false;
             #endregion
 
@@ -46,12 +52,12 @@ namespace Main
                 };
                 cmdTaiKhoanHopLe.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
                 string TaiKhoanTrongCSDL = string.Empty;
-                using (SqlDataReader readerDocTaiKhoan = cmdTaiKhoanHopLe.ExecuteReader())
+                using (SqlDataReader DocTaiKhoan = cmdTaiKhoanHopLe.ExecuteReader())
                 {
-                    while (readerDocTaiKhoan.Read())
+                    while (DocTaiKhoan.Read())
                     {
-                        if (!readerDocTaiKhoan.IsDBNull(0))
-                            TaiKhoanTrongCSDL = readerDocTaiKhoan.GetString(0);
+                        if (!DocTaiKhoan.IsDBNull(0))
+                            TaiKhoanTrongCSDL = DocTaiKhoan.GetString(0);
                     }
                 }
                 /*
@@ -73,16 +79,13 @@ namespace Main
                 DongKetNoi();
             }
 
-            return CoThe && KiemTra(TenTaiKhoan) && KiemTra(MatKhau);
+            return CoThe;
         }
 
         public bool ThucHienDangKy()
         {
             bool DangKyThanhCong = false;
-
-            if (TenTaiKhoan == string.Empty || MatKhau == string.Empty)
-                return false;
-
+            
             try
             {
                 if (!CoTheDangKy()) // tai khoan da co trong CSDL

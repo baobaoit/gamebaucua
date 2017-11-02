@@ -5,7 +5,7 @@ using Main;
 namespace UnitTest_LopDangKy
 {
     [TestClass]
-    public class UnitTest1
+    public class Test_LopDangKy
     {
         #region Test mật khẩu
         [TestMethod]
@@ -120,7 +120,31 @@ namespace UnitTest_LopDangKy
             // nhap ten tai khoan 6 ky tu, trong do co 2 khoang trang lien tiep
             bool MongMuon = false;
             Assert.AreEqual(MongMuon, DangKy.KiemTra("Nhi  2"));
-        } 
+        }
+
+        [TestMethod]
+        public void TestDangKyTaiKhoanKhongHopLe6()
+        {
+            // ten tai khoan la trong
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, DangKy.KiemTra(""));
+        }
+        #endregion
+
+        #region Test Xử lý ngoại lệ
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestXuLyNgoaiLeTenDangNhapRong()
+        {
+            new DangKy("", "123456", "nam");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestXuLyNgoaiLeMatKhauRong()
+        {
+            new DangKy("123456", "", "nam");
+        }
         #endregion
     }
 }

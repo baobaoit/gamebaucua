@@ -19,6 +19,14 @@ namespace Main
 
             try
             {
+                #region Kiểm tra Tên đăng nhập và Mật khẩu hợp lệ
+                if (!DangKy.KiemTra(txtTenDangNhap.Text))
+                    throw new ArgumentException("Tên đăng nhập không hợp lệ.\nVui lòng kiểm tra lại!");
+
+                if (!DangKy.KiemTra(txtMatKhau.Text))
+                    throw new ArgumentException("Mật khẩu không hợp lệ.\nVui lòng kiểm tra lại!"); 
+                #endregion
+
                 if (new DangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text).ThucHienDangKy())
                 {
                     if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)

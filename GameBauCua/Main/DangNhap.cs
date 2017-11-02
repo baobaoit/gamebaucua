@@ -4,8 +4,8 @@
     {
         public DangNhap(string TenTaiKhoan, string MatKhau)
         {
-            this.TenTaiKhoan = TenTaiKhoan.Trim();
-            this.MatKhau = MatKhau.Trim();
+            this.TenTaiKhoan = TenTaiKhoan;
+            this.MatKhau = MatKhau;
         }
 
         public NguoiChoi ThucHienDangNhap()
