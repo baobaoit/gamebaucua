@@ -110,7 +110,7 @@ namespace Main
                     }
                 }
                 int Tong = TongDiemCong - TongDiemTru;
-                ThongBao += string.Format("\nTổng điểm: {0}{1} điểm.", (Tong < 0) ? "-" : "+", Tong);
+                ThongBao += string.Format("\nTổng điểm: {0}{1} điểm.", (Tong > 0) ? "+" : "", Tong);
             }
             return 1;
         }
