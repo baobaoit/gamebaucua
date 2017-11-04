@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{908A0B51-992B-4F15-90C7-44750A6BCD72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_LopDangNhap", "UnitTest_LopDangNhap\UnitTest_LopDangNhap.csproj", "{178E192E-E6E8-4F30-886C-6434058E1A65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_LopDangKy", "UnitTest_LopDangKy\UnitTest_LopDangKy.csproj", "{759E53C7-B546-426A-BCFE-E2D8E6E8C2EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_LopChoiGame", "UnitTest_LopChoiGame\UnitTest_LopChoiGame.csproj", "{D49F8150-4C6A-40F6-8769-47319748E7F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{759E53C7-B546-426A-BCFE-E2D8E6E8C2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{759E53C7-B546-426A-BCFE-E2D8E6E8C2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{759E53C7-B546-426A-BCFE-E2D8E6E8C2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49F8150-4C6A-40F6-8769-47319748E7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49F8150-4C6A-40F6-8769-47319748E7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49F8150-4C6A-40F6-8769-47319748E7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49F8150-4C6A-40F6-8769-47319748E7F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
