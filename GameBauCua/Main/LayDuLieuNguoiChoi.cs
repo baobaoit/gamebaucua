@@ -18,7 +18,6 @@ namespace Main
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
-                cmd.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
 
                 #region Đọc dữ liệu người dùng từ CSDL
                 SqlDataReader DocDuLieu = cmd.ExecuteReader();
