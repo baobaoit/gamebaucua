@@ -101,7 +101,7 @@ namespace Main
                         CommandType = CommandType.StoredProcedure
                     };
                     cmdDangKy.Parameters.Add(new SqlParameter("@TenDangNhap", TenTaiKhoan));
-                    cmdDangKy.Parameters.Add(new SqlParameter("@MatKhau", MatKhau));
+                    cmdDangKy.Parameters.Add(new SqlParameter("@MatKhau", MatKhau.ToMD5()));
                     cmdDangKy.Parameters.Add(new SqlParameter("@GioiTinh", GioiTinh));
                     cmdDangKy.Parameters.Add(new SqlParameter("@DiaChi", DiaChi));
                     cmdDangKy.Parameters.Add(new SqlParameter("@SoDienThoai", SoDienThoai));

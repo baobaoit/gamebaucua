@@ -384,7 +384,7 @@
             this.toolStripSeparator1,
             this.menuDangXuat});
             this.ctxMenuChoiGame.Name = "ctxMenuChoiGame";
-            this.ctxMenuChoiGame.Size = new System.Drawing.Size(182, 134);
+            this.ctxMenuChoiGame.Size = new System.Drawing.Size(182, 106);
             // 
             // menuChonNhac
             // 
@@ -431,6 +431,7 @@
             this.Controls.Add(this.lblTenNguoiChoi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Chơi game";

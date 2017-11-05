@@ -130,6 +130,7 @@
             this.Controls.Add(this.picXemDiem);
             this.Controls.Add(this.picChoiNgay);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGiaoDienChoiGame";
             this.Text = "Bầu Cua Tôm Cá";

@@ -11,7 +11,7 @@ namespace UnitTest_LopDangNhap
         [TestMethod]
         public void TestDangNhapHopLe()
         {
-            dangNhap = new DangNhap("Admin", "Admin");
+            dangNhap = new DangNhap("gamebaucua", "gamebaucua");
             NguoiChoi nguoiChoi = dangNhap.ThucHienDangNhap();
             bool MongMuon = true;
             Assert.AreEqual(MongMuon, NguoiChoi.TonTai(nguoiChoi));
@@ -28,6 +28,7 @@ namespace UnitTest_LopDangNhap
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void TestDangNhapKhongHopLe2()
         {
             // dang nhap voi tai khoan va mat khau chua dang ky

@@ -81,9 +81,9 @@
             this.txtMatKhau.Location = new System.Drawing.Point(237, 81);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(264, 34);
             this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // btnDangNhap
             // 
@@ -164,13 +164,13 @@
             this.ctxMenuDangNhap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuThoat});
             this.ctxMenuDangNhap.Name = "ctxMenuDangNhap";
-            this.ctxMenuDangNhap.Size = new System.Drawing.Size(176, 56);
+            this.ctxMenuDangNhap.Size = new System.Drawing.Size(117, 28);
             this.ctxMenuDangNhap.Text = "Đăng nhập trò chơi";
             // 
             // menuThoat
             // 
             this.menuThoat.Name = "menuThoat";
-            this.menuThoat.Size = new System.Drawing.Size(175, 24);
+            this.menuThoat.Size = new System.Drawing.Size(116, 24);
             this.menuThoat.Text = "Thoát";
             this.menuThoat.Click += new System.EventHandler(this.menuThoat_Click);
             // 
