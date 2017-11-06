@@ -10,6 +10,15 @@ namespace Main
         public frmDangNhap()
         {
             InitializeComponent();
+
+            try
+            {
+                BaoMat_EM.EncryptConnectionString(Application.StartupPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)

@@ -87,7 +87,7 @@
     </Compile>
     <Compile Include="KetNoiCSDL.cs" />
     <Compile Include="LayDuLieuNguoiChoi.cs" />
-    <Compile Include="MaHoaMD5_EM.cs" />
+    <Compile Include="BaoMat_EM.cs" />
     <Compile Include="NguoiChoi.cs" />
     <Compile Include="NhacNen.cs" />
     <Compile Include="Program.cs" />
