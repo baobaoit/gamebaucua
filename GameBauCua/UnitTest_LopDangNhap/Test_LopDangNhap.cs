@@ -42,7 +42,18 @@ namespace UnitTest_LopDangNhap
         public void TestDangNhapKhongHopLe3()
         {
             // tai khoan co trong csdl nhung mat khau de trong
-            dangNhap = new DangNhap("us1", "");
+            dangNhap = new DangNhap("gamebaucua", "");
+            NguoiChoi nguoiChoi = dangNhap.ThucHienDangNhap();
+            bool MongMuon = false;
+            Assert.AreEqual(MongMuon, NguoiChoi.TonTai(nguoiChoi));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestDangNhapKhongHopLe4()
+        {
+            // tai khoan co trong csdl nhung mat khau sai
+            dangNhap = new DangNhap("gamebaucua", "aucuabemag");
             NguoiChoi nguoiChoi = dangNhap.ThucHienDangNhap();
             bool MongMuon = false;
             Assert.AreEqual(MongMuon, NguoiChoi.TonTai(nguoiChoi));
