@@ -61,7 +61,7 @@ namespace Main
         private void timer1_Tick(object sender, EventArgs e)
         {
             #region Xử lý khi 2 hình chạm nhau
-            int dx = 5; //toc do di chuyen cua 2 hinh
+            int dx = 10; //toc do di chuyen cua 2 hinh
             //tim 2 hinh trong mang Control cua form
             Control[] pic1 = Controls.Find("pic1", false);
             Control[] pic2 = Controls.Find("pic2", false);

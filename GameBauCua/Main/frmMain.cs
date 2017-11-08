@@ -100,7 +100,7 @@ namespace Main
             picKetQua3.Image = Choi.HinhKetQua(3);
             #endregion
 
-            if (MessageBox.Show(Choi.ThongBao, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            if (MessageBox.Show(Choi.ThongBao, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information).Equals(DialogResult.OK))
             {
                 #region Đặt lại các ô đặt cược về 0
                 DatLaiTienCuoc(ref txtDatNai);
@@ -117,7 +117,7 @@ namespace Main
             #region Xử lý khi người chơi hết điểm
             if (Choi.Diem.Equals(0))
             {
-                if (MessageBox.Show("Tài khoản của bạn đã hết!\nBạn có muốn nhận 500 điểm để chơi lại không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Tài khoản của bạn đã hết!\nBạn có muốn nhận 500 điểm để chơi lại không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
                 {
                     Choi.Diem = 500;
                     lblDiem.Text = "Điểm: " + Choi.Diem.ToString();

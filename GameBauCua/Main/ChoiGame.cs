@@ -69,7 +69,7 @@ namespace Main
         {
             int TongTienDatCuoc = TienDatCuoc.Sum();
 
-            if (TongTienDatCuoc > Diem || TongTienDatCuoc == 0)
+            if (TongTienDatCuoc > Diem || TongTienDatCuoc.Equals(0))
             {
                 return 0;
             }
@@ -89,10 +89,9 @@ namespace Main
                 for (int i = 0; i < KetQuaXoc.Length; i++)
                 {
                     CoDatCuoc = TienDatCuoc[i] != 0;
-                    CoQuayTrung = KetQuaXoc[i] != 0;
-
                     if (CoDatCuoc)
                     {
+                        CoQuayTrung = KetQuaXoc[i] != 0;
                         if (CoQuayTrung)
                         {
                             int DiemThuong = (TienDatCuoc[i] * KetQuaXoc[i]);

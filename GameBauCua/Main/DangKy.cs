@@ -1,18 +1,17 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using System;
-using System.Text.RegularExpressions;
 
 namespace Main
 {
     public class DangKy : KetNoiCSDL
     {
-        public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh, string DiaChi = "", string SoDienThoai = "")
+        public DangKy(string TenTaiKhoan, string MatKhau, string GioiTinh = "Nam", string DiaChi = "", string SoDienThoai = "")
         {
-            if (TenTaiKhoan == string.Empty)
+            if (TenTaiKhoan.Equals(string.Empty))
                 throw new ArgumentException("Tên tài khoản không được để trống!");
 
-            if (MatKhau == string.Empty)
+            if (MatKhau.Equals(string.Empty))
                 throw new ArgumentException("Mật khẩu không được để trống!");
 
             this.TenTaiKhoan = TenTaiKhoan;
@@ -20,21 +19,6 @@ namespace Main
             this.GioiTinh = GioiTinh;
             this.DiaChi = DiaChi;
             this.SoDienThoai = SoDienThoai;
-        }
-
-        public static bool KiemTra(string input)
-        {
-            // kiem tra toi thieu 6 ky tu khong
-            if (input.Length < 6 || input.Length > 12)
-                return false; // dung kiem tra luon
-            #region Tên tài khoản có tối thiểu 6 ký tự
-            // khong phai la ky tu chu, ky tu so, _
-            Regex regex = new Regex(@"\W");
-            if (regex.IsMatch(input))
-                return false;
-            #endregion
-
-            return true;
         }
 
         private bool CoTheDangKy()
@@ -64,7 +48,7 @@ namespace Main
                  * Neu tai khoan co trong he thong => != string.Empty => Ko the dang ky voi ten tai khoan nay
                  * Neu tai khoan ko co trong he thong => == string.Empty => Co the dang ky voi ten tai khoan nay
                  */
-                CoThe = TaiKhoanTrongCSDL == string.Empty;
+                CoThe = TaiKhoanTrongCSDL.Equals(string.Empty);
             }
             catch (SqlException ex)
             {
@@ -106,7 +90,7 @@ namespace Main
                     cmdDangKy.Parameters.Add(new SqlParameter("@DiaChi", DiaChi));
                     cmdDangKy.Parameters.Add(new SqlParameter("@SoDienThoai", SoDienThoai));
 
-                    DangKyThanhCong = cmdDangKy.ExecuteNonQuery() == 1; 
+                    DangKyThanhCong = cmdDangKy.ExecuteNonQuery().Equals(1); 
                 }
             }
             catch (SqlException ex)

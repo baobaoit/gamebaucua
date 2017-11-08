@@ -56,7 +56,7 @@ namespace Main
             #region Xử lý đếm ngược thời gian
             DemNguoc--;
             Invalidate();
-            if (DemNguoc == -1)
+            if (DemNguoc.Equals(-1))
             {
                 BatFormMain = true;
             }

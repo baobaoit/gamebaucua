@@ -103,7 +103,7 @@ namespace Main
                 ChonNhacNen.Filter = "MP3 File|*.mp3";
                 ChonNhacNen.Title = "Chọn nhạc nền";
                 ChonNhacNen.InitialDirectory = DuongDanFileNhac;
-                if (ChonNhacNen.ShowDialog() == DialogResult.OK)
+                if (ChonNhacNen.ShowDialog().Equals(DialogResult.OK))
                 {
                     DuongDanFileNhac = ChonNhacNen.FileName;
                     NHAC_NEN.DoiNhac(DuongDanFileNhac);

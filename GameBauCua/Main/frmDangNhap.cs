@@ -44,7 +44,7 @@ namespace Main
                 User = new DangNhap(txtTenDangNhap.Text, txtMatKhau.Text).ThucHienDangNhap();
                 if (NguoiChoi.TonTai(User))
                 {
-                    if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    if (MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information).Equals(DialogResult.OK))
                     {
                         using (frmGiaoDienChoiGame frmGDCG = new frmGiaoDienChoiGame())
                         {
@@ -69,7 +69,7 @@ namespace Main
 
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            if (keyData == Keys.Enter)
+            if (keyData.Equals(Keys.Enter))
             {
                 DangNhap();
             }
@@ -83,7 +83,7 @@ namespace Main
 
         private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn thoát chương trình chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.No)
+            if (MessageBox.Show("Bạn muốn thoát chương trình chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk).Equals(DialogResult.No))
             {
                 e.Cancel = true;
             }

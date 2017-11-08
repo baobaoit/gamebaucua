@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.IO;
@@ -39,7 +37,7 @@ namespace Main
             {
                 // lay phan duoi
                 string typeOfFile = file.Substring(file.LastIndexOf(".") + 1);
-                if (typeOfFile == "exe")
+                if (typeOfFile.Equals("exe"))
                 {
                     fileName = file;
                     break;
@@ -55,7 +53,7 @@ namespace Main
             Configuration configuration = null;
             string fileName = GetFile(path);
             FileInfo fiConfig = new FileInfo(fileName + ".config");
-            if (fiConfig.Attributes == FileAttributes.Hidden)
+            if (fiConfig.Attributes.Equals(FileAttributes.Hidden))
                 return;
             try
             {

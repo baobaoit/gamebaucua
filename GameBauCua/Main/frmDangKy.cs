@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Main
@@ -20,16 +21,16 @@ namespace Main
             try
             {
                 #region Kiểm tra Tên đăng nhập và Mật khẩu hợp lệ
-                if (!DangKy.KiemTra(txtTenDangNhap.Text))
+                if (!txtTenDangNhap.Text.HopLe())
                     throw new ArgumentException("Tên đăng nhập không hợp lệ.\nVui lòng kiểm tra lại!");
 
-                if (!DangKy.KiemTra(txtMatKhau.Text))
+                if (!txtMatKhau.Text.HopLe())
                     throw new ArgumentException("Mật khẩu không hợp lệ.\nVui lòng kiểm tra lại!"); 
                 #endregion
 
                 if (new DangKy(txtTenDangNhap.Text, txtMatKhau.Text, GioiTinh, txtDiaChi.Text, txtSoDienThoai.Text).ThucHienDangKy())
                 {
-                    if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    if (MessageBox.Show("Bạn đã đăng ký tài khoản thành công.", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information).Equals(DialogResult.OK))
                         Close();
                 }
                 else
@@ -69,6 +70,24 @@ namespace Main
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+    }
+
+    public static class KiemTraChuoi
+    {
+        public static bool HopLe(this string input)
+        {
+            // kiem tra toi thieu 6 ky tu khong
+            if (input.Length < 6 || input.Length > 12)
+                return false; // dung kiem tra luon
+            #region Tên tài khoản có tối thiểu 6 ký tự
+            // khong phai la ky tu chu, ky tu so, _
+            Regex regex = new Regex(@"\W");
+            if (regex.IsMatch(input))
+                return false;
+            #endregion
+
+            return true;
         }
     }
 }

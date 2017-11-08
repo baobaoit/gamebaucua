@@ -12,7 +12,7 @@ namespace Main
 
         public NguoiChoi ThucHienDangNhap()
         {
-            if (TenTaiKhoan == string.Empty || MatKhau == string.Empty)
+            if (TenTaiKhoan.Equals(string.Empty) || MatKhau.Equals(string.Empty))
                 return null;
 
             NguoiChoi User = LayDuLieu();
