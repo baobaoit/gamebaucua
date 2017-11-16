@@ -67,6 +67,11 @@ namespace Main
                         //this line will encrypt the file
                         configSection.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
                     }
+                    else
+                    {
+                        //this line will decrypt the file
+                        configSection.SectionInformation.UnprotectSection();
+                    }
                     //re-save the configuration file section
                     configSection.SectionInformation.ForceSave = true;
                     // Save the current configuration
